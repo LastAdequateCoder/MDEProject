@@ -1,3 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
-    name="erdMetamodel" nsURI="http://www.example.org/erdMetamodel" nsPrefix="erdMetamodel"/>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="erdMetamodel" nsURI="http://www.example.org/erdMetamodel" nsPrefix="erdMetamodel">
+  <eClassifiers xsi:type="ecore:EClass" name="Entity">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="relationships" upperBound="-1"
+        eType="#//Relationship" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="attributes" upperBound="-1"
+        eType="#//Attribute" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Attribute">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="isPrimaryKey" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        defaultValueLiteral="false"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="dataType" eType="#//DataTypes"
+        defaultValueLiteral="INT"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Relationship">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="target" eType="#//Entity"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="source" eType="#//Entity"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//RelationshipType"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="DataTypes">
+    <eLiterals name="INT"/>
+    <eLiterals name="VARCHAR" value="1"/>
+    <eLiterals name="DATE" value="2"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="RelationshipType">
+    <eLiterals name="OneToOne"/>
+    <eLiterals name="OneToMane" value="1"/>
+    <eLiterals name="ManyToMane" value="2"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Constraint"/>
+</ecore:EPackage>
