@@ -60,6 +60,61 @@ public interface ErdMetamodelPackage extends EPackage {
 	ErdMetamodelPackage eINSTANCE = erdMetamodel.impl.ErdMetamodelPackageImpl.init();
 
 	/**
+	 * The meta object id for the '{@link erdMetamodel.impl.ModelImpl <em>Model</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see erdMetamodel.impl.ModelImpl
+	 * @see erdMetamodel.impl.ErdMetamodelPackageImpl#getModel()
+	 * @generated
+	 */
+	int MODEL = 0;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MODEL__NAME = 0;
+
+	/**
+	 * The feature id for the '<em><b>Entity</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MODEL__ENTITY = 1;
+
+	/**
+	 * The feature id for the '<em><b>Relationships</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MODEL__RELATIONSHIPS = 2;
+
+	/**
+	 * The number of structural features of the '<em>Model</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MODEL_FEATURE_COUNT = 3;
+
+	/**
+	 * The number of operations of the '<em>Model</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MODEL_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link erdMetamodel.impl.EntityImpl <em>Entity</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -67,7 +122,7 @@ public interface ErdMetamodelPackage extends EPackage {
 	 * @see erdMetamodel.impl.ErdMetamodelPackageImpl#getEntity()
 	 * @generated
 	 */
-	int ENTITY = 0;
+	int ENTITY = 1;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -79,22 +134,13 @@ public interface ErdMetamodelPackage extends EPackage {
 	int ENTITY__NAME = 0;
 
 	/**
-	 * The feature id for the '<em><b>Relationships</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ENTITY__RELATIONSHIPS = 1;
-
-	/**
 	 * The feature id for the '<em><b>Attributes</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ENTITY__ATTRIBUTES = 2;
+	int ENTITY__ATTRIBUTES = 1;
 
 	/**
 	 * The feature id for the '<em><b>Foreign Keys</b></em>' reference list.
@@ -103,7 +149,7 @@ public interface ErdMetamodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ENTITY__FOREIGN_KEYS = 3;
+	int ENTITY__FOREIGN_KEYS = 2;
 
 	/**
 	 * The number of structural features of the '<em>Entity</em>' class.
@@ -112,7 +158,7 @@ public interface ErdMetamodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ENTITY_FEATURE_COUNT = 4;
+	int ENTITY_FEATURE_COUNT = 3;
 
 	/**
 	 * The operation id for the '<em>Unique Entity Name</em>' operation.
@@ -158,7 +204,7 @@ public interface ErdMetamodelPackage extends EPackage {
 	 * @see erdMetamodel.impl.ErdMetamodelPackageImpl#getWeakEntity()
 	 * @generated
 	 */
-	int WEAK_ENTITY = 1;
+	int WEAK_ENTITY = 2;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -168,15 +214,6 @@ public interface ErdMetamodelPackage extends EPackage {
 	 * @ordered
 	 */
 	int WEAK_ENTITY__NAME = ENTITY__NAME;
-
-	/**
-	 * The feature id for the '<em><b>Relationships</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int WEAK_ENTITY__RELATIONSHIPS = ENTITY__RELATIONSHIPS;
 
 	/**
 	 * The feature id for the '<em><b>Attributes</b></em>' containment reference list.
@@ -267,7 +304,7 @@ public interface ErdMetamodelPackage extends EPackage {
 	 * @see erdMetamodel.impl.ErdMetamodelPackageImpl#getComplexEntity()
 	 * @generated
 	 */
-	int COMPLEX_ENTITY = 2;
+	int COMPLEX_ENTITY = 3;
 
 	/**
 	 * The feature id for the '<em><b>Aggregated Entities</b></em>' reference list.
@@ -313,7 +350,7 @@ public interface ErdMetamodelPackage extends EPackage {
 	 * @see erdMetamodel.impl.ErdMetamodelPackageImpl#getAttribute()
 	 * @generated
 	 */
-	int ATTRIBUTE = 3;
+	int ATTRIBUTE = 4;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -395,7 +432,7 @@ public interface ErdMetamodelPackage extends EPackage {
 	 * @see erdMetamodel.impl.ErdMetamodelPackageImpl#getCompositeAttribute()
 	 * @generated
 	 */
-	int COMPOSITE_ATTRIBUTE = 4;
+	int COMPOSITE_ATTRIBUTE = 5;
 
 	/**
 	 * The feature id for the '<em><b>Sub Attributes</b></em>' reference list.
@@ -441,7 +478,7 @@ public interface ErdMetamodelPackage extends EPackage {
 	 * @see erdMetamodel.impl.ErdMetamodelPackageImpl#getRelationship()
 	 * @generated
 	 */
-	int RELATIONSHIP = 5;
+	int RELATIONSHIP = 6;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -523,7 +560,7 @@ public interface ErdMetamodelPackage extends EPackage {
 	 * @see erdMetamodel.impl.ErdMetamodelPackageImpl#getConstraint()
 	 * @generated
 	 */
-	int CONSTRAINT = 6;
+	int CONSTRAINT = 7;
 
 	/**
 	 * The number of structural features of the '<em>Constraint</em>' class.
@@ -551,7 +588,7 @@ public interface ErdMetamodelPackage extends EPackage {
 	 * @see erdMetamodel.impl.ErdMetamodelPackageImpl#getDataTypes()
 	 * @generated
 	 */
-	int DATA_TYPES = 7;
+	int DATA_TYPES = 8;
 
 	/**
 	 * The meta object id for the '{@link erdMetamodel.RelationshipType <em>Relationship Type</em>}' enum.
@@ -561,7 +598,50 @@ public interface ErdMetamodelPackage extends EPackage {
 	 * @see erdMetamodel.impl.ErdMetamodelPackageImpl#getRelationshipType()
 	 * @generated
 	 */
-	int RELATIONSHIP_TYPE = 8;
+	int RELATIONSHIP_TYPE = 9;
+
+	/**
+	 * Returns the meta object for class '{@link erdMetamodel.Model <em>Model</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Model</em>'.
+	 * @see erdMetamodel.Model
+	 * @generated
+	 */
+	EClass getModel();
+
+	/**
+	 * Returns the meta object for the attribute '{@link erdMetamodel.Model#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see erdMetamodel.Model#getName()
+	 * @see #getModel()
+	 * @generated
+	 */
+	EAttribute getModel_Name();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link erdMetamodel.Model#getEntity <em>Entity</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Entity</em>'.
+	 * @see erdMetamodel.Model#getEntity()
+	 * @see #getModel()
+	 * @generated
+	 */
+	EReference getModel_Entity();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link erdMetamodel.Model#getRelationships <em>Relationships</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Relationships</em>'.
+	 * @see erdMetamodel.Model#getRelationships()
+	 * @see #getModel()
+	 * @generated
+	 */
+	EReference getModel_Relationships();
 
 	/**
 	 * Returns the meta object for class '{@link erdMetamodel.Entity <em>Entity</em>}'.
@@ -583,17 +663,6 @@ public interface ErdMetamodelPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getEntity_Name();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link erdMetamodel.Entity#getRelationships <em>Relationships</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Relationships</em>'.
-	 * @see erdMetamodel.Entity#getRelationships()
-	 * @see #getEntity()
-	 * @generated
-	 */
-	EReference getEntity_Relationships();
 
 	/**
 	 * Returns the meta object for the containment reference list '{@link erdMetamodel.Entity#getAttributes <em>Attributes</em>}'.
@@ -943,6 +1012,40 @@ public interface ErdMetamodelPackage extends EPackage {
 	 */
 	interface Literals {
 		/**
+		 * The meta object literal for the '{@link erdMetamodel.impl.ModelImpl <em>Model</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see erdMetamodel.impl.ModelImpl
+		 * @see erdMetamodel.impl.ErdMetamodelPackageImpl#getModel()
+		 * @generated
+		 */
+		EClass MODEL = eINSTANCE.getModel();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute MODEL__NAME = eINSTANCE.getModel_Name();
+
+		/**
+		 * The meta object literal for the '<em><b>Entity</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference MODEL__ENTITY = eINSTANCE.getModel_Entity();
+
+		/**
+		 * The meta object literal for the '<em><b>Relationships</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference MODEL__RELATIONSHIPS = eINSTANCE.getModel_Relationships();
+
+		/**
 		 * The meta object literal for the '{@link erdMetamodel.impl.EntityImpl <em>Entity</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -959,14 +1062,6 @@ public interface ErdMetamodelPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute ENTITY__NAME = eINSTANCE.getEntity_Name();
-
-		/**
-		 * The meta object literal for the '<em><b>Relationships</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference ENTITY__RELATIONSHIPS = eINSTANCE.getEntity_Relationships();
 
 		/**
 		 * The meta object literal for the '<em><b>Attributes</b></em>' containment reference list feature.

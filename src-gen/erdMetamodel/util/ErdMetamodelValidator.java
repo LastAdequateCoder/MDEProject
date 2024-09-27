@@ -158,6 +158,8 @@ public class ErdMetamodelValidator extends EObjectValidator {
 	protected boolean validate(int classifierID, Object value, DiagnosticChain diagnostics,
 			Map<Object, Object> context) {
 		switch (classifierID) {
+		case ErdMetamodelPackage.MODEL:
+			return validateModel((Model) value, diagnostics, context);
 		case ErdMetamodelPackage.ENTITY:
 			return validateEntity((Entity) value, diagnostics, context);
 		case ErdMetamodelPackage.WEAK_ENTITY:
@@ -179,6 +181,15 @@ public class ErdMetamodelValidator extends EObjectValidator {
 		default:
 			return true;
 		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateModel(Model model, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(model, diagnostics, context);
 	}
 
 	/**

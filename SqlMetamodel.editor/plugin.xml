@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated Sqlmetamodel -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="sqlMetamodel.presentation.SqlMetamodelModelWizardID"
+            name="%_UI_SqlMetamodelModelWizard_label"
+            class="sqlMetamodel.presentation.SqlMetamodelModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/SqlMetamodelModelFile.gif">
+         <description>%_UI_SqlMetamodelModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated Sqlmetamodel -->
+      <editor
+            id="sqlMetamodel.presentation.SqlMetamodelEditorID"
+            name="%_UI_SqlMetamodelEditor_label"
+            icon="icons/full/obj16/SqlMetamodelModelFile.gif"
+            extensions="sqlmetamodel"
+            class="sqlMetamodel.presentation.SqlMetamodelEditor"
+            contributorClass="sqlMetamodel.presentation.SqlMetamodelActionBarContributor">
+      </editor>
+   </extension>
+
+</plugin>

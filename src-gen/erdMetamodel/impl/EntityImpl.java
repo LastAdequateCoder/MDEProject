@@ -6,8 +6,6 @@ import erdMetamodel.Attribute;
 import erdMetamodel.Entity;
 import erdMetamodel.ErdMetamodelPackage;
 import erdMetamodel.ErdMetamodelTables;
-import erdMetamodel.Relationship;
-
 import java.lang.reflect.InvocationTargetException;
 
 import java.util.Collection;
@@ -64,7 +62,6 @@ import org.eclipse.ocl.pivot.values.SetValue.Accumulator;
  * </p>
  * <ul>
  *   <li>{@link erdMetamodel.impl.EntityImpl#getName <em>Name</em>}</li>
- *   <li>{@link erdMetamodel.impl.EntityImpl#getRelationships <em>Relationships</em>}</li>
  *   <li>{@link erdMetamodel.impl.EntityImpl#getAttributes <em>Attributes</em>}</li>
  *   <li>{@link erdMetamodel.impl.EntityImpl#getForeignKeys <em>Foreign Keys</em>}</li>
  * </ul>
@@ -91,16 +88,6 @@ public class EntityImpl extends MinimalEObjectImpl.Container implements Entity {
 	 * @ordered
 	 */
 	protected String name = NAME_EDEFAULT;
-
-	/**
-	 * The cached value of the '{@link #getRelationships() <em>Relationships</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getRelationships()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Relationship> relationships;
 
 	/**
 	 * The cached value of the '{@link #getAttributes() <em>Attributes</em>}' containment reference list.
@@ -162,20 +149,6 @@ public class EntityImpl extends MinimalEObjectImpl.Container implements Entity {
 		name = newName;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, ErdMetamodelPackage.ENTITY__NAME, oldName, name));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EList<Relationship> getRelationships() {
-		if (relationships == null) {
-			relationships = new EObjectContainmentEList<Relationship>(Relationship.class, this,
-					ErdMetamodelPackage.ENTITY__RELATIONSHIPS);
-		}
-		return relationships;
 	}
 
 	/**
@@ -440,8 +413,6 @@ public class EntityImpl extends MinimalEObjectImpl.Container implements Entity {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-		case ErdMetamodelPackage.ENTITY__RELATIONSHIPS:
-			return ((InternalEList<?>) getRelationships()).basicRemove(otherEnd, msgs);
 		case ErdMetamodelPackage.ENTITY__ATTRIBUTES:
 			return ((InternalEList<?>) getAttributes()).basicRemove(otherEnd, msgs);
 		}
@@ -458,8 +429,6 @@ public class EntityImpl extends MinimalEObjectImpl.Container implements Entity {
 		switch (featureID) {
 		case ErdMetamodelPackage.ENTITY__NAME:
 			return getName();
-		case ErdMetamodelPackage.ENTITY__RELATIONSHIPS:
-			return getRelationships();
 		case ErdMetamodelPackage.ENTITY__ATTRIBUTES:
 			return getAttributes();
 		case ErdMetamodelPackage.ENTITY__FOREIGN_KEYS:
@@ -479,10 +448,6 @@ public class EntityImpl extends MinimalEObjectImpl.Container implements Entity {
 		switch (featureID) {
 		case ErdMetamodelPackage.ENTITY__NAME:
 			setName((String) newValue);
-			return;
-		case ErdMetamodelPackage.ENTITY__RELATIONSHIPS:
-			getRelationships().clear();
-			getRelationships().addAll((Collection<? extends Relationship>) newValue);
 			return;
 		case ErdMetamodelPackage.ENTITY__ATTRIBUTES:
 			getAttributes().clear();
@@ -507,9 +472,6 @@ public class EntityImpl extends MinimalEObjectImpl.Container implements Entity {
 		case ErdMetamodelPackage.ENTITY__NAME:
 			setName(NAME_EDEFAULT);
 			return;
-		case ErdMetamodelPackage.ENTITY__RELATIONSHIPS:
-			getRelationships().clear();
-			return;
 		case ErdMetamodelPackage.ENTITY__ATTRIBUTES:
 			getAttributes().clear();
 			return;
@@ -530,8 +492,6 @@ public class EntityImpl extends MinimalEObjectImpl.Container implements Entity {
 		switch (featureID) {
 		case ErdMetamodelPackage.ENTITY__NAME:
 			return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-		case ErdMetamodelPackage.ENTITY__RELATIONSHIPS:
-			return relationships != null && !relationships.isEmpty();
 		case ErdMetamodelPackage.ENTITY__ATTRIBUTES:
 			return attributes != null && !attributes.isEmpty();
 		case ErdMetamodelPackage.ENTITY__FOREIGN_KEYS:

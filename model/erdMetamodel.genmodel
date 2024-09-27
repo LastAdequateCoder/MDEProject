@@ -19,15 +19,31 @@
       <genEnumLiterals ecoreEnumLiteral="erdMetamodel.ecore#//RelationshipType/OneToMane"/>
       <genEnumLiterals ecoreEnumLiteral="erdMetamodel.ecore#//RelationshipType/ManyToMane"/>
     </genEnums>
+    <genClasses ecoreClass="erdMetamodel.ecore#//Model">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute erdMetamodel.ecore#//Model/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference erdMetamodel.ecore#//Model/Entity"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference erdMetamodel.ecore#//Model/relationships"/>
+    </genClasses>
     <genClasses ecoreClass="erdMetamodel.ecore#//Entity">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute erdMetamodel.ecore#//Entity/name"/>
-      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference erdMetamodel.ecore#//Entity/relationships"/>
       <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference erdMetamodel.ecore#//Entity/attributes"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference erdMetamodel.ecore#//Entity/foreignKeys"/>
+    </genClasses>
+    <genClasses ecoreClass="erdMetamodel.ecore#//WeakEntity">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference erdMetamodel.ecore#//WeakEntity/identifyingRelationship"/>
+    </genClasses>
+    <genClasses ecoreClass="erdMetamodel.ecore#//ComplexEntity">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference erdMetamodel.ecore#//ComplexEntity/aggregatedEntities"/>
     </genClasses>
     <genClasses ecoreClass="erdMetamodel.ecore#//Attribute">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute erdMetamodel.ecore#//Attribute/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute erdMetamodel.ecore#//Attribute/isPrimaryKey"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute erdMetamodel.ecore#//Attribute/dataType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute erdMetamodel.ecore#//Attribute/isComposite"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute erdMetamodel.ecore#//Attribute/isDerived"/>
+    </genClasses>
+    <genClasses ecoreClass="erdMetamodel.ecore#//CompositeAttribute">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference erdMetamodel.ecore#//CompositeAttribute/subAttributes"/>
     </genClasses>
     <genClasses ecoreClass="erdMetamodel.ecore#//Relationship">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute erdMetamodel.ecore#//Relationship/name"/>

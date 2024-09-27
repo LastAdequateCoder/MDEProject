@@ -19,7 +19,6 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link erdMetamodel.Entity#getName <em>Name</em>}</li>
- *   <li>{@link erdMetamodel.Entity#getRelationships <em>Relationships</em>}</li>
  *   <li>{@link erdMetamodel.Entity#getAttributes <em>Attributes</em>}</li>
  *   <li>{@link erdMetamodel.Entity#getForeignKeys <em>Foreign Keys</em>}</li>
  * </ul>
@@ -50,18 +49,6 @@ public interface Entity extends EObject {
 	 * @generated
 	 */
 	void setName(String value);
-
-	/**
-	 * Returns the value of the '<em><b>Relationships</b></em>' containment reference list.
-	 * The list contents are of type {@link erdMetamodel.Relationship}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Relationships</em>' containment reference list.
-	 * @see erdMetamodel.ErdMetamodelPackage#getEntity_Relationships()
-	 * @model containment="true"
-	 * @generated
-	 */
-	EList<Relationship> getRelationships();
 
 	/**
 	 * Returns the value of the '<em><b>Attributes</b></em>' containment reference list.

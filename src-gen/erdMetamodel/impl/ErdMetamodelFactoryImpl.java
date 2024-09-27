@@ -57,6 +57,8 @@ public class ErdMetamodelFactoryImpl extends EFactoryImpl implements ErdMetamode
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
+		case ErdMetamodelPackage.MODEL:
+			return createModel();
 		case ErdMetamodelPackage.ENTITY:
 			return createEntity();
 		case ErdMetamodelPackage.WEAK_ENTITY:
@@ -108,6 +110,17 @@ public class ErdMetamodelFactoryImpl extends EFactoryImpl implements ErdMetamode
 		default:
 			throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Model createModel() {
+		ModelImpl model = new ModelImpl();
+		return model;
 	}
 
 	/**

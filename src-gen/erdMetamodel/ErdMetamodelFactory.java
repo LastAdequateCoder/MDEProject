@@ -22,6 +22,15 @@ public interface ErdMetamodelFactory extends EFactory {
 	ErdMetamodelFactory eINSTANCE = erdMetamodel.impl.ErdMetamodelFactoryImpl.init();
 
 	/**
+	 * Returns a new object of class '<em>Model</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Model</em>'.
+	 * @generated
+	 */
+	Model createModel();
+
+	/**
 	 * Returns a new object of class '<em>Entity</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

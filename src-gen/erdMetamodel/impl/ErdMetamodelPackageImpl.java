@@ -10,6 +10,7 @@ import erdMetamodel.DataTypes;
 import erdMetamodel.Entity;
 import erdMetamodel.ErdMetamodelFactory;
 import erdMetamodel.ErdMetamodelPackage;
+import erdMetamodel.Model;
 import erdMetamodel.Relationship;
 import erdMetamodel.RelationshipType;
 import erdMetamodel.WeakEntity;
@@ -34,6 +35,13 @@ import org.eclipse.emf.ecore.impl.EPackageImpl;
  * @generated
  */
 public class ErdMetamodelPackageImpl extends EPackageImpl implements ErdMetamodelPackage {
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass modelEClass = null;
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -175,6 +183,46 @@ public class ErdMetamodelPackageImpl extends EPackageImpl implements ErdMetamode
 	 * @generated
 	 */
 	@Override
+	public EClass getModel() {
+		return modelEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getModel_Name() {
+		return (EAttribute) modelEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getModel_Entity() {
+		return (EReference) modelEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getModel_Relationships() {
+		return (EReference) modelEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getEntity() {
 		return entityEClass;
 	}
@@ -195,7 +243,7 @@ public class ErdMetamodelPackageImpl extends EPackageImpl implements ErdMetamode
 	 * @generated
 	 */
 	@Override
-	public EReference getEntity_Relationships() {
+	public EReference getEntity_Attributes() {
 		return (EReference) entityEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -205,18 +253,8 @@ public class ErdMetamodelPackageImpl extends EPackageImpl implements ErdMetamode
 	 * @generated
 	 */
 	@Override
-	public EReference getEntity_Attributes() {
-		return (EReference) entityEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EReference getEntity_ForeignKeys() {
-		return (EReference) entityEClass.getEStructuralFeatures().get(3);
+		return (EReference) entityEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -539,9 +577,13 @@ public class ErdMetamodelPackageImpl extends EPackageImpl implements ErdMetamode
 		isCreated = true;
 
 		// Create classes and their features
+		modelEClass = createEClass(MODEL);
+		createEAttribute(modelEClass, MODEL__NAME);
+		createEReference(modelEClass, MODEL__ENTITY);
+		createEReference(modelEClass, MODEL__RELATIONSHIPS);
+
 		entityEClass = createEClass(ENTITY);
 		createEAttribute(entityEClass, ENTITY__NAME);
-		createEReference(entityEClass, ENTITY__RELATIONSHIPS);
 		createEReference(entityEClass, ENTITY__ATTRIBUTES);
 		createEReference(entityEClass, ENTITY__FOREIGN_KEYS);
 		createEOperation(entityEClass, ENTITY___UNIQUE_ENTITY_NAME__DIAGNOSTICCHAIN_MAP);
@@ -615,12 +657,19 @@ public class ErdMetamodelPackageImpl extends EPackageImpl implements ErdMetamode
 		weakEntityEClass.getESuperTypes().add(this.getEntity());
 
 		// Initialize classes, features, and operations; add parameters
+		initEClass(modelEClass, Model.class, "Model", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getModel_Name(), ecorePackage.getEString(), "name", null, 0, 1, Model.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getModel_Entity(), this.getEntity(), null, "Entity", null, 0, -1, Model.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
+				IS_ORDERED);
+		initEReference(getModel_Relationships(), this.getRelationship(), null, "relationships", null, 0, -1,
+				Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
+				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
 		initEClass(entityEClass, Entity.class, "Entity", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getEntity_Name(), ecorePackage.getEString(), "name", null, 0, 1, Entity.class, !IS_TRANSIENT,
 				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getEntity_Relationships(), this.getRelationship(), null, "relationships", null, 0, -1,
-				Entity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
-				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getEntity_Attributes(), this.getAttribute(), null, "attributes", null, 0, -1, Entity.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

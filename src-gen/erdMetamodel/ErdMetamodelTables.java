@@ -70,6 +70,7 @@ public class ErdMetamodelTables extends AbstractTables
 	public static final /*@NonInvalid*/ ClassId CLSSid_ComplexEntity = ErdMetamodelTables.PACKid_http_c_s_s_www_example_org_s_erdMetamodel.getClassId("ComplexEntity", 0);
 	public static final /*@NonInvalid*/ ClassId CLSSid_CompositeAttribute = ErdMetamodelTables.PACKid_http_c_s_s_www_example_org_s_erdMetamodel.getClassId("CompositeAttribute", 0);
 	public static final /*@NonInvalid*/ ClassId CLSSid_Entity = ErdMetamodelTables.PACKid_http_c_s_s_www_example_org_s_erdMetamodel.getClassId("Entity", 0);
+	public static final /*@NonInvalid*/ ClassId CLSSid_Model = ErdMetamodelTables.PACKid_http_c_s_s_www_example_org_s_erdMetamodel.getClassId("Model", 0);
 	public static final /*@NonInvalid*/ ClassId CLSSid_Relationship = ErdMetamodelTables.PACKid_http_c_s_s_www_example_org_s_erdMetamodel.getClassId("Relationship", 0);
 	public static final /*@NonInvalid*/ ClassId CLSSid_WeakEntity = ErdMetamodelTables.PACKid_http_c_s_s_www_example_org_s_erdMetamodel.getClassId("WeakEntity", 0);
 	public static final /*@NonInvalid*/ EnumerationId ENUMid_DataTypes = ErdMetamodelTables.PACKid_http_c_s_s_www_example_org_s_erdMetamodel.getEnumerationId("DataTypes");
@@ -122,6 +123,7 @@ public class ErdMetamodelTables extends AbstractTables
 		public static final EcoreExecutorType _Constraint = new EcoreExecutorType(ErdMetamodelPackage.Literals.CONSTRAINT, PACKAGE, 0);
 		public static final EcoreExecutorEnumeration _DataTypes = new EcoreExecutorEnumeration(ErdMetamodelPackage.Literals.DATA_TYPES, PACKAGE, 0);
 		public static final EcoreExecutorType _Entity = new EcoreExecutorType(ErdMetamodelPackage.Literals.ENTITY, PACKAGE, 0);
+		public static final EcoreExecutorType _Model = new EcoreExecutorType(ErdMetamodelPackage.Literals.MODEL, PACKAGE, 0);
 		public static final EcoreExecutorType _Relationship = new EcoreExecutorType(ErdMetamodelPackage.Literals.RELATIONSHIP, PACKAGE, 0);
 		public static final EcoreExecutorEnumeration _RelationshipType = new EcoreExecutorEnumeration(ErdMetamodelPackage.Literals.RELATIONSHIP_TYPE, PACKAGE, 0);
 		public static final EcoreExecutorType _WeakEntity = new EcoreExecutorType(ErdMetamodelPackage.Literals.WEAK_ENTITY, PACKAGE, 0);
@@ -133,6 +135,7 @@ public class ErdMetamodelTables extends AbstractTables
 			_Constraint,
 			_DataTypes,
 			_Entity,
+			_Model,
 			_Relationship,
 			_RelationshipType,
 			_WeakEntity
@@ -186,6 +189,10 @@ public class ErdMetamodelTables extends AbstractTables
 		private static final ExecutorFragment _Entity__Entity = new ExecutorFragment(Types._Entity, ErdMetamodelTables.Types._Entity);
 		private static final ExecutorFragment _Entity__OclAny = new ExecutorFragment(Types._Entity, OCLstdlibTables.Types._OclAny);
 		private static final ExecutorFragment _Entity__OclElement = new ExecutorFragment(Types._Entity, OCLstdlibTables.Types._OclElement);
+
+		private static final ExecutorFragment _Model__Model = new ExecutorFragment(Types._Model, ErdMetamodelTables.Types._Model);
+		private static final ExecutorFragment _Model__OclAny = new ExecutorFragment(Types._Model, OCLstdlibTables.Types._OclAny);
+		private static final ExecutorFragment _Model__OclElement = new ExecutorFragment(Types._Model, OCLstdlibTables.Types._OclElement);
 
 		private static final ExecutorFragment _Relationship__OclAny = new ExecutorFragment(Types._Relationship, OCLstdlibTables.Types._OclAny);
 		private static final ExecutorFragment _Relationship__OclElement = new ExecutorFragment(Types._Relationship, OCLstdlibTables.Types._OclElement);
@@ -288,16 +295,20 @@ public class ErdMetamodelTables extends AbstractTables
 		public static final ExecutorProperty _Entity__attributes = new EcoreExecutorProperty(ErdMetamodelPackage.Literals.ENTITY__ATTRIBUTES, Types._Entity, 0);
 		public static final ExecutorProperty _Entity__foreignKeys = new EcoreExecutorProperty(ErdMetamodelPackage.Literals.ENTITY__FOREIGN_KEYS, Types._Entity, 1);
 		public static final ExecutorProperty _Entity__name = new EcoreExecutorProperty(ErdMetamodelPackage.Literals.ENTITY__NAME, Types._Entity, 2);
-		public static final ExecutorProperty _Entity__relationships = new EcoreExecutorProperty(ErdMetamodelPackage.Literals.ENTITY__RELATIONSHIPS, Types._Entity, 3);
-		public static final ExecutorProperty _Entity__ComplexEntity__aggregatedEntities = new ExecutorPropertyWithImplementation("ComplexEntity", Types._Entity, 4, new EcoreLibraryOppositeProperty(ErdMetamodelPackage.Literals.COMPLEX_ENTITY__AGGREGATED_ENTITIES));
+		public static final ExecutorProperty _Entity__ComplexEntity__aggregatedEntities = new ExecutorPropertyWithImplementation("ComplexEntity", Types._Entity, 3, new EcoreLibraryOppositeProperty(ErdMetamodelPackage.Literals.COMPLEX_ENTITY__AGGREGATED_ENTITIES));
+		public static final ExecutorProperty _Entity__Model__Entity = new ExecutorPropertyWithImplementation("Model", Types._Entity, 4, new EcoreLibraryOppositeProperty(ErdMetamodelPackage.Literals.MODEL__ENTITY));
 		public static final ExecutorProperty _Entity__Relationship__source = new ExecutorPropertyWithImplementation("Relationship", Types._Entity, 5, new EcoreLibraryOppositeProperty(ErdMetamodelPackage.Literals.RELATIONSHIP__SOURCE));
 		public static final ExecutorProperty _Entity__Relationship__target = new ExecutorPropertyWithImplementation("Relationship", Types._Entity, 6, new EcoreLibraryOppositeProperty(ErdMetamodelPackage.Literals.RELATIONSHIP__TARGET));
+
+		public static final ExecutorProperty _Model__Entity = new EcoreExecutorProperty(ErdMetamodelPackage.Literals.MODEL__ENTITY, Types._Model, 0);
+		public static final ExecutorProperty _Model__name = new EcoreExecutorProperty(ErdMetamodelPackage.Literals.MODEL__NAME, Types._Model, 1);
+		public static final ExecutorProperty _Model__relationships = new EcoreExecutorProperty(ErdMetamodelPackage.Literals.MODEL__RELATIONSHIPS, Types._Model, 2);
 
 		public static final ExecutorProperty _Relationship__name = new EcoreExecutorProperty(ErdMetamodelPackage.Literals.RELATIONSHIP__NAME, Types._Relationship, 0);
 		public static final ExecutorProperty _Relationship__source = new EcoreExecutorProperty(ErdMetamodelPackage.Literals.RELATIONSHIP__SOURCE, Types._Relationship, 1);
 		public static final ExecutorProperty _Relationship__target = new EcoreExecutorProperty(ErdMetamodelPackage.Literals.RELATIONSHIP__TARGET, Types._Relationship, 2);
 		public static final ExecutorProperty _Relationship__type = new EcoreExecutorProperty(ErdMetamodelPackage.Literals.RELATIONSHIP__TYPE, Types._Relationship, 3);
-		public static final ExecutorProperty _Relationship__Entity__relationships = new ExecutorPropertyWithImplementation("Entity", Types._Relationship, 4, new EcoreLibraryOppositeProperty(ErdMetamodelPackage.Literals.ENTITY__RELATIONSHIPS));
+		public static final ExecutorProperty _Relationship__Model__relationships = new ExecutorPropertyWithImplementation("Model", Types._Relationship, 4, new EcoreLibraryOppositeProperty(ErdMetamodelPackage.Literals.MODEL__RELATIONSHIPS));
 		public static final ExecutorProperty _Relationship__WeakEntity__identifyingRelationship = new ExecutorPropertyWithImplementation("WeakEntity", Types._Relationship, 5, new EcoreLibraryOppositeProperty(ErdMetamodelPackage.Literals.WEAK_ENTITY__IDENTIFYING_RELATIONSHIP));
 
 		public static final ExecutorProperty _WeakEntity__identifyingRelationship = new EcoreExecutorProperty(ErdMetamodelPackage.Literals.WEAK_ENTITY__IDENTIFYING_RELATIONSHIP, Types._WeakEntity, 0);
@@ -370,6 +381,14 @@ public class ErdMetamodelTables extends AbstractTables
 			};
 		private static final int /*@NonNull*/ [] __Entity = { 1,1,1 };
 
+		private static final ExecutorFragment /*@NonNull*/ [] _Model =
+			{
+				Fragments._Model__OclAny /* 0 */,
+				Fragments._Model__OclElement /* 1 */,
+				Fragments._Model__Model /* 2 */
+			};
+		private static final int /*@NonNull*/ [] __Model = { 1,1,1 };
+
 		private static final ExecutorFragment /*@NonNull*/ [] _Relationship =
 			{
 				Fragments._Relationship__OclAny /* 0 */,
@@ -407,6 +426,7 @@ public class ErdMetamodelTables extends AbstractTables
 			Types._Constraint.initFragments(_Constraint, __Constraint);
 			Types._DataTypes.initFragments(_DataTypes, __DataTypes);
 			Types._Entity.initFragments(_Entity, __Entity);
+			Types._Model.initFragments(_Model, __Model);
 			Types._Relationship.initFragments(_Relationship, __Relationship);
 			Types._RelationshipType.initFragments(_RelationshipType, __RelationshipType);
 			Types._WeakEntity.initFragments(_WeakEntity, __WeakEntity);
@@ -603,6 +623,34 @@ public class ErdMetamodelTables extends AbstractTables
 			OCLstdlibTables.Operations._OclElement__oclModelTypes /* oclModelTypes() */
 		};
 
+		private static final ExecutorOperation /*@NonNull*/ [] _Model__Model = {};
+		private static final ExecutorOperation /*@NonNull*/ [] _Model__OclAny = {
+			OCLstdlibTables.Operations._OclAny___lt__gt_ /* _'<>'(OclSelf[?]) */,
+			OCLstdlibTables.Operations._OclAny___eq_ /* _'='(OclSelf[?]) */,
+			OCLstdlibTables.Operations._OclAny__oclAsSet /* oclAsSet() */,
+			OCLstdlibTables.Operations._OclAny__oclAsType /* oclAsType(TT)(TT[1]) */,
+			OCLstdlibTables.Operations._OclAny__oclIsInState /* oclIsInState(OclState[?]) */,
+			OCLstdlibTables.Operations._OclAny__oclIsInvalid /* oclIsInvalid() */,
+			OCLstdlibTables.Operations._OclAny__oclIsKindOf /* oclIsKindOf(OclType[1]) */,
+			OCLstdlibTables.Operations._OclAny__oclIsNew /* oclIsNew() */,
+			OCLstdlibTables.Operations._OclAny__oclIsTypeOf /* oclIsTypeOf(OclType[1]) */,
+			OCLstdlibTables.Operations._OclAny__oclIsUndefined /* oclIsUndefined() */,
+			OCLstdlibTables.Operations._OclAny__0_oclLog /* oclLog() */,
+			OCLstdlibTables.Operations._OclAny__1_oclLog /* oclLog(String[1]) */,
+			OCLstdlibTables.Operations._OclAny__oclType /* oclType() */,
+			OCLstdlibTables.Operations._OclAny__oclTypes /* oclTypes() */,
+			OCLstdlibTables.Operations._OclAny__toString /* toString() */
+		};
+		private static final ExecutorOperation /*@NonNull*/ [] _Model__OclElement = {
+			OCLstdlibTables.Operations._OclElement__allInstances /* allInstances() */,
+			OCLstdlibTables.Operations._OclElement__oclAsModelType /* oclAsModelType(TT)(TT[1]) */,
+			OCLstdlibTables.Operations._OclElement__oclContainer /* oclContainer() */,
+			OCLstdlibTables.Operations._OclElement__oclContents /* oclContents() */,
+			OCLstdlibTables.Operations._OclElement__oclIsModelKindOf /* oclIsModelKindOf(OclType[1]) */,
+			OCLstdlibTables.Operations._OclElement__oclModelType /* oclModelType() */,
+			OCLstdlibTables.Operations._OclElement__oclModelTypes /* oclModelTypes() */
+		};
+
 		private static final ExecutorOperation /*@NonNull*/ [] _Relationship__Relationship = {};
 		private static final ExecutorOperation /*@NonNull*/ [] _Relationship__OclAny = {
 			OCLstdlibTables.Operations._OclAny___lt__gt_ /* _'<>'(OclSelf[?]) */,
@@ -724,6 +772,10 @@ public class ErdMetamodelTables extends AbstractTables
 			Fragments._Entity__OclAny.initOperations(_Entity__OclAny);
 			Fragments._Entity__OclElement.initOperations(_Entity__OclElement);
 
+			Fragments._Model__Model.initOperations(_Model__Model);
+			Fragments._Model__OclAny.initOperations(_Model__OclAny);
+			Fragments._Model__OclElement.initOperations(_Model__OclElement);
+
 			Fragments._Relationship__OclAny.initOperations(_Relationship__OclAny);
 			Fragments._Relationship__OclElement.initOperations(_Relationship__OclElement);
 			Fragments._Relationship__Relationship.initOperations(_Relationship__Relationship);
@@ -794,8 +846,15 @@ public class ErdMetamodelTables extends AbstractTables
 			ErdMetamodelTables.Properties._Entity__foreignKeys,
 			ErdMetamodelTables.Properties._Entity__name,
 			OCLstdlibTables.Properties._OclElement__oclContainer,
+			OCLstdlibTables.Properties._OclElement__oclContents
+		};
+
+		private static final ExecutorProperty /*@NonNull*/ [] _Model = {
+			ErdMetamodelTables.Properties._Model__Entity,
+			ErdMetamodelTables.Properties._Model__name,
+			OCLstdlibTables.Properties._OclElement__oclContainer,
 			OCLstdlibTables.Properties._OclElement__oclContents,
-			ErdMetamodelTables.Properties._Entity__relationships
+			ErdMetamodelTables.Properties._Model__relationships
 		};
 
 		private static final ExecutorProperty /*@NonNull*/ [] _Relationship = {
@@ -818,8 +877,7 @@ public class ErdMetamodelTables extends AbstractTables
 			ErdMetamodelTables.Properties._WeakEntity__identifyingRelationship,
 			ErdMetamodelTables.Properties._Entity__name,
 			OCLstdlibTables.Properties._OclElement__oclContainer,
-			OCLstdlibTables.Properties._OclElement__oclContents,
-			ErdMetamodelTables.Properties._Entity__relationships
+			OCLstdlibTables.Properties._OclElement__oclContents
 		};
 
 		/**
@@ -832,6 +890,7 @@ public class ErdMetamodelTables extends AbstractTables
 			Fragments._Constraint__Constraint.initProperties(_Constraint);
 			Fragments._DataTypes__DataTypes.initProperties(_DataTypes);
 			Fragments._Entity__Entity.initProperties(_Entity);
+			Fragments._Model__Model.initProperties(_Model);
 			Fragments._Relationship__Relationship.initProperties(_Relationship);
 			Fragments._RelationshipType__RelationshipType.initProperties(_RelationshipType);
 			Fragments._WeakEntity__WeakEntity.initProperties(_WeakEntity);
