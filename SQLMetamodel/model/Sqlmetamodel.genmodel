@@ -6,14 +6,14 @@
     operationReflection="true" importOrganizing="true">
   <foreignModel>Sqlmetamodel.ecore</foreignModel>
   <genPackages prefix="SqlMetamodel" disposableProviderFactory="true" ecorePackage="Sqlmetamodel.ecore#/">
-    <genEnums typeSafeEnumCompatible="false" ecoreEnum="Sqlmetamodel.ecore#//SQLDataType">
-      <genEnumLiterals ecoreEnumLiteral="Sqlmetamodel.ecore#//SQLDataType/INT"/>
-      <genEnumLiterals ecoreEnumLiteral="Sqlmetamodel.ecore#//SQLDataType/VARCHAR"/>
-      <genEnumLiterals ecoreEnumLiteral="Sqlmetamodel.ecore#//SQLDataType/DATE"/>
-      <genEnumLiterals ecoreEnumLiteral="Sqlmetamodel.ecore#//SQLDataType/BOOLEAN"/>
-      <genEnumLiterals ecoreEnumLiteral="Sqlmetamodel.ecore#//SQLDataType/FLOAT"/>
-      <genEnumLiterals ecoreEnumLiteral="Sqlmetamodel.ecore#//SQLDataType/DOUBLE"/>
-      <genEnumLiterals ecoreEnumLiteral="Sqlmetamodel.ecore#//SQLDataType/TEXT"/>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="Sqlmetamodel.ecore#//SQLDataTypes">
+      <genEnumLiterals ecoreEnumLiteral="Sqlmetamodel.ecore#//SQLDataTypes/INT"/>
+      <genEnumLiterals ecoreEnumLiteral="Sqlmetamodel.ecore#//SQLDataTypes/VARCHAR"/>
+      <genEnumLiterals ecoreEnumLiteral="Sqlmetamodel.ecore#//SQLDataTypes/DATE"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="Sqlmetamodel.ecore#//ConstraintType">
+      <genEnumLiterals ecoreEnumLiteral="Sqlmetamodel.ecore#//ConstraintType/UNIQUE"/>
+      <genEnumLiterals ecoreEnumLiteral="Sqlmetamodel.ecore#//ConstraintType/CHECK"/>
     </genEnums>
     <genClasses ecoreClass="Sqlmetamodel.ecore#//Database">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Sqlmetamodel.ecore#//Database/name"/>
@@ -24,29 +24,22 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Sqlmetamodel.ecore#//Table/columns"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Sqlmetamodel.ecore#//Table/primaryKey"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Sqlmetamodel.ecore#//Table/foreignKeys"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Sqlmetamodel.ecore#//Table/indexes"/>
     </genClasses>
     <genClasses ecoreClass="Sqlmetamodel.ecore#//Column">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Sqlmetamodel.ecore#//Column/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Sqlmetamodel.ecore#//Column/dataType"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Sqlmetamodel.ecore#//Column/isNullable"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Sqlmetamodel.ecore#//Column/isUnique"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Sqlmetamodel.ecore#//Column/isAutoIncrement"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Sqlmetamodel.ecore#//Column/isPrimaryKey"/>
     </genClasses>
-    <genClasses ecoreClass="Sqlmetamodel.ecore#//PrimaryKey">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Sqlmetamodel.ecore#//PrimaryKey/columns"/>
-    </genClasses>
+    <genClasses ecoreClass="Sqlmetamodel.ecore#//PrimaryKey"/>
     <genClasses ecoreClass="Sqlmetamodel.ecore#//ForeignKey">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Sqlmetamodel.ecore#//ForeignKey/name"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Sqlmetamodel.ecore#//ForeignKey/referencedTable"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Sqlmetamodel.ecore#//ForeignKey/referencedColumns"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Sqlmetamodel.ecore#//ForeignKey/columns"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Sqlmetamodel.ecore#//ForeignKey/referencedColumn"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Sqlmetamodel.ecore#//ForeignKey/localColumn"/>
     </genClasses>
-    <genClasses ecoreClass="Sqlmetamodel.ecore#//Index">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Sqlmetamodel.ecore#//Index/name"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Sqlmetamodel.ecore#//Index/columns"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Sqlmetamodel.ecore#//Index/isUnique"/>
+    <genClasses ecoreClass="Sqlmetamodel.ecore#//Constraint">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Sqlmetamodel.ecore#//Constraint/constraintType"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Sqlmetamodel.ecore#//Constraint/constrainedColumns"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

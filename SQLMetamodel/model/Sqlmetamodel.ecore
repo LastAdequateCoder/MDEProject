@@ -1,60 +1,91 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="sqlMetamodel" nsURI="http://www.example.org/sqlMetamodel" nsPrefix="sqlMetamodel">
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="sqlDatabaseMetamodel" nsURI="http://www.example.org/sqlDatabaseMetamodel"
+    nsPrefix="sqlDatabaseMetamodel">
+  <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+    <details key="invocationDelegates" value="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"/>
+    <details key="settingDelegates" value="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"/>
+    <details key="validationDelegates" value="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"/>
+  </eAnnotations>
   <eClassifiers xsi:type="ecore:EClass" name="Database">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="tables" upperBound="-1"
         eType="#//Table" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Table">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+      <details key="constraints" value="UniqueTableName TableHasPrimaryKey UniqueColumnNames"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+      <details key="UniqueTableName" value="&#xA;&#x9;&#x9;&#x9;Table.allInstances()->isUnique(t | t.name)"/>
+      <details key="TableHasPrimaryKey" value="&#xA;&#x9;&#x9;&#x9;not self.primaryKey.oclIsUndefined()"/>
+      <details key="UniqueColumnNames" value="&#xA;&#x9;&#x9;&#x9;self.columns->isUnique(c | c.name)"/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="columns" upperBound="-1"
         eType="#//Column" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="primaryKey" eType="#//PrimaryKey"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="primaryKey" lowerBound="1"
+        eType="#//PrimaryKey"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="foreignKeys" upperBound="-1"
         eType="#//ForeignKey"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="indexes" upperBound="-1"
-        eType="#//Index"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Column">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+      <details key="constraints" value="ValidSQLDataType"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+      <details key="ValidSQLDataType" value="&#xA;&#x9;&#x9;&#x9;self.dataType = SQLDataTypes::INT or self.dataType = SQLDataTypes::VARCHAR or self.dataType = SQLDataTypes::DATE"/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="dataType" eType="#//SQLDataType"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="dataType" eType="#//SQLDataTypes"
+        defaultValueLiteral="INT"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="isNullable" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" defaultValueLiteral="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="isUnique" lowerBound="1"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" defaultValueLiteral="false"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="isAutoIncrement" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" defaultValueLiteral="false"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="isPrimaryKey" lowerBound="1"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" defaultValueLiteral="false"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="constraints" upperBound="-1"
+        eType="#//Constraint">
+      <eAnnotations source="http://www.eclipse.org/OCL/Collection">
+        <details key="nullFree" value="false"/>
+      </eAnnotations>
+    </eStructuralFeatures>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="PrimaryKey">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="columns" upperBound="-1"
-        eType="#//Column"/>
+  <eClassifiers xsi:type="ecore:EClass" name="PrimaryKey" eSuperTypes="#//Column">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+      <details key="constraints" value="IsPrimaryKey"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+      <details key="IsPrimaryKey" value="&#xA;&#x9;&#x9;&#x9;self.isAutoIncrement = true"/>
+    </eAnnotations>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ForeignKey">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ForeignKey" eSuperTypes="#//Column">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+      <details key="constraints" value="ValidForeignKeyReference"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+      <details key="ValidForeignKeyReference" value="&#xA;&#x9;&#x9;&#x9;not self.referencedTable.oclIsUndefined() and not self.referencedColumn.oclIsUndefined()"/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="referencedTable" lowerBound="1"
         eType="#//Table"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="referencedColumns" upperBound="-1"
-        eType="#//Column"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="columns" upperBound="-1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="referencedColumn" lowerBound="1"
         eType="#//Column"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Index">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="columns" upperBound="-1"
-        eType="#//Column"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="isUnique" lowerBound="1"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" defaultValueLiteral="false"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EEnum" name="SQLDataType">
+  <eClassifiers xsi:type="ecore:EEnum" name="SQLDataTypes">
     <eLiterals name="INT"/>
     <eLiterals name="VARCHAR" value="1"/>
     <eLiterals name="DATE" value="2"/>
-    <eLiterals name="BOOLEAN" value="3"/>
-    <eLiterals name="FLOAT" value="4"/>
-    <eLiterals name="DOUBLE" value="5"/>
-    <eLiterals name="TEXT" value="6"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Constraint">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+      <details key="constraints" value="ValidConstraintType"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+      <details key="ValidConstraintType" value="&#xA;&#x9;&#x9;&#x9;self.constraintType = ConstraintType::UNIQUE or self.constraintType = ConstraintType::CHECK"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="constraintType" eType="#//ConstraintType"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="ConstraintType">
+    <eLiterals name="UNIQUE"/>
+    <eLiterals name="CHECK" value="1"/>
   </eClassifiers>
 </ecore:EPackage>
