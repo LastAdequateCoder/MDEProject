@@ -26,7 +26,6 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.eclipse.ocl.pivot.evaluation.Executor;
@@ -63,7 +62,6 @@ import org.eclipse.ocl.pivot.values.SetValue.Accumulator;
  * <ul>
  *   <li>{@link erdMetamodel.impl.EntityImpl#getName <em>Name</em>}</li>
  *   <li>{@link erdMetamodel.impl.EntityImpl#getAttributes <em>Attributes</em>}</li>
- *   <li>{@link erdMetamodel.impl.EntityImpl#getForeignKeys <em>Foreign Keys</em>}</li>
  * </ul>
  *
  * @generated
@@ -98,16 +96,6 @@ public class EntityImpl extends MinimalEObjectImpl.Container implements Entity {
 	 * @ordered
 	 */
 	protected EList<Attribute> attributes;
-
-	/**
-	 * The cached value of the '{@link #getForeignKeys() <em>Foreign Keys</em>}' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getForeignKeys()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Attribute> foreignKeys;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -171,20 +159,6 @@ public class EntityImpl extends MinimalEObjectImpl.Container implements Entity {
 	 * @generated
 	 */
 	@Override
-	public EList<Attribute> getForeignKeys() {
-		if (foreignKeys == null) {
-			foreignKeys = new EObjectResolvingEList<Attribute>(Attribute.class, this,
-					ErdMetamodelPackage.ENTITY__FOREIGN_KEYS);
-		}
-		return foreignKeys;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public boolean UniqueEntityName(final DiagnosticChain diagnostics, final Map<Object, Object> context) {
 		final String constraintName = "Entity::UniqueEntityName";
 		try {
@@ -201,15 +175,15 @@ public class EntityImpl extends MinimalEObjectImpl.Container implements Entity {
 			 *         constraintName.logDiagnostic(self, null, diagnostics, context, null, severity, result, 0)
 			 *     endif
 			 */
-			final /*@NonInvalid*/ Executor executor = PivotUtil.getExecutor(this, context);
+			final /*@NonInvalid*/ Executor executor = PivotUtil.getExecutor(this);
 			final /*@NonInvalid*/ IdResolver idResolver = executor.getIdResolver();
 			final /*@NonInvalid*/ IntegerValue severity_0 = CGStringGetSeverityOperation.INSTANCE.evaluate(executor,
 					ErdMetamodelPackage.Literals.ENTITY___UNIQUE_ENTITY_NAME__DIAGNOSTICCHAIN_MAP);
 			final /*@NonInvalid*/ boolean le = OclComparableLessThanEqualOperation.INSTANCE
 					.evaluate(executor, severity_0, ErdMetamodelTables.INT_0).booleanValue();
-			/*@NonInvalid*/ boolean local_0;
+			/*@NonInvalid*/ boolean IF_le;
 			if (le) {
-				local_0 = true;
+				IF_le = true;
 			} else {
 				/*@Caught*/ Object CAUGHT_result;
 				try {
@@ -247,9 +221,9 @@ public class EntityImpl extends MinimalEObjectImpl.Container implements Entity {
 						.evaluate(executor, TypeId.BOOLEAN, constraintName, this, (Object) null, diagnostics, context,
 								(Object) null, severity_0, CAUGHT_result, ErdMetamodelTables.INT_0)
 						.booleanValue();
-				local_0 = logDiagnostic;
+				IF_le = logDiagnostic;
 			}
-			return local_0;
+			return IF_le;
 		} catch (Throwable e) {
 			return ValueUtil.validationFailedDiagnostic(constraintName, this, diagnostics, context, e);
 		}
@@ -278,15 +252,15 @@ public class EntityImpl extends MinimalEObjectImpl.Container implements Entity {
 			 *         constraintName.logDiagnostic(self, null, diagnostics, context, null, severity, result, 0)
 			 *     endif
 			 */
-			final /*@NonInvalid*/ Executor executor = PivotUtil.getExecutor(this, context);
+			final /*@NonInvalid*/ Executor executor = PivotUtil.getExecutor(this);
 			final /*@NonInvalid*/ IdResolver idResolver = executor.getIdResolver();
 			final /*@NonInvalid*/ IntegerValue severity_0 = CGStringGetSeverityOperation.INSTANCE.evaluate(executor,
 					ErdMetamodelPackage.Literals.ENTITY___ENTITY_HAS_PRIMARY_KEY__DIAGNOSTICCHAIN_MAP);
 			final /*@NonInvalid*/ boolean le = OclComparableLessThanEqualOperation.INSTANCE
 					.evaluate(executor, severity_0, ErdMetamodelTables.INT_0).booleanValue();
-			/*@NonInvalid*/ boolean local_0;
+			/*@NonInvalid*/ boolean IF_le;
 			if (le) {
-				local_0 = true;
+				IF_le = true;
 			} else {
 				final /*@NonInvalid*/ List<Attribute> attributes = this.getAttributes();
 				final /*@NonInvalid*/ OrderedSetValue BOXED_attributes = idResolver
@@ -322,9 +296,9 @@ public class EntityImpl extends MinimalEObjectImpl.Container implements Entity {
 						.evaluate(executor, TypeId.BOOLEAN, constraintName, this, (Object) null, diagnostics, context,
 								(Object) null, severity_0, result, ErdMetamodelTables.INT_0)
 						.booleanValue();
-				local_0 = logDiagnostic;
+				IF_le = logDiagnostic;
 			}
-			return local_0;
+			return IF_le;
 		} catch (Throwable e) {
 			return ValueUtil.validationFailedDiagnostic(constraintName, this, diagnostics, context, e);
 		}
@@ -352,15 +326,15 @@ public class EntityImpl extends MinimalEObjectImpl.Container implements Entity {
 			 *         constraintName.logDiagnostic(self, null, diagnostics, context, null, severity, result, 0)
 			 *     endif
 			 */
-			final /*@NonInvalid*/ Executor executor = PivotUtil.getExecutor(this, context);
+			final /*@NonInvalid*/ Executor executor = PivotUtil.getExecutor(this);
 			final /*@NonInvalid*/ IdResolver idResolver = executor.getIdResolver();
 			final /*@NonInvalid*/ IntegerValue severity_0 = CGStringGetSeverityOperation.INSTANCE.evaluate(executor,
 					ErdMetamodelPackage.Literals.ENTITY___UNIQUE_ATTRIBUTE_NAMES__DIAGNOSTICCHAIN_MAP);
 			final /*@NonInvalid*/ boolean le = OclComparableLessThanEqualOperation.INSTANCE
 					.evaluate(executor, severity_0, ErdMetamodelTables.INT_0).booleanValue();
-			/*@NonInvalid*/ boolean local_0;
+			/*@NonInvalid*/ boolean IF_le;
 			if (le) {
-				local_0 = true;
+				IF_le = true;
 			} else {
 				/*@Caught*/ Object CAUGHT_result;
 				try {
@@ -397,9 +371,9 @@ public class EntityImpl extends MinimalEObjectImpl.Container implements Entity {
 						.evaluate(executor, TypeId.BOOLEAN, constraintName, this, (Object) null, diagnostics, context,
 								(Object) null, severity_0, CAUGHT_result, ErdMetamodelTables.INT_0)
 						.booleanValue();
-				local_0 = logDiagnostic;
+				IF_le = logDiagnostic;
 			}
-			return local_0;
+			return IF_le;
 		} catch (Throwable e) {
 			return ValueUtil.validationFailedDiagnostic(constraintName, this, diagnostics, context, e);
 		}
@@ -431,8 +405,6 @@ public class EntityImpl extends MinimalEObjectImpl.Container implements Entity {
 			return getName();
 		case ErdMetamodelPackage.ENTITY__ATTRIBUTES:
 			return getAttributes();
-		case ErdMetamodelPackage.ENTITY__FOREIGN_KEYS:
-			return getForeignKeys();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -453,10 +425,6 @@ public class EntityImpl extends MinimalEObjectImpl.Container implements Entity {
 			getAttributes().clear();
 			getAttributes().addAll((Collection<? extends Attribute>) newValue);
 			return;
-		case ErdMetamodelPackage.ENTITY__FOREIGN_KEYS:
-			getForeignKeys().clear();
-			getForeignKeys().addAll((Collection<? extends Attribute>) newValue);
-			return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -475,9 +443,6 @@ public class EntityImpl extends MinimalEObjectImpl.Container implements Entity {
 		case ErdMetamodelPackage.ENTITY__ATTRIBUTES:
 			getAttributes().clear();
 			return;
-		case ErdMetamodelPackage.ENTITY__FOREIGN_KEYS:
-			getForeignKeys().clear();
-			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -494,8 +459,6 @@ public class EntityImpl extends MinimalEObjectImpl.Container implements Entity {
 			return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 		case ErdMetamodelPackage.ENTITY__ATTRIBUTES:
 			return attributes != null && !attributes.isEmpty();
-		case ErdMetamodelPackage.ENTITY__FOREIGN_KEYS:
-			return foreignKeys != null && !foreignKeys.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

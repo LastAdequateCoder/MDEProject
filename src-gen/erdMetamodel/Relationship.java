@@ -19,7 +19,9 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link erdMetamodel.Relationship#getName <em>Name</em>}</li>
  *   <li>{@link erdMetamodel.Relationship#getTarget <em>Target</em>}</li>
+ *   <li>{@link erdMetamodel.Relationship#getTargetTable <em>Target Table</em>}</li>
  *   <li>{@link erdMetamodel.Relationship#getSource <em>Source</em>}</li>
+ *   <li>{@link erdMetamodel.Relationship#getSourceTable <em>Source Table</em>}</li>
  *   <li>{@link erdMetamodel.Relationship#getType <em>Type</em>}</li>
  * </ul>
  *
@@ -55,12 +57,12 @@ public interface Relationship extends EObject {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Target</em>' reference.
-	 * @see #setTarget(Entity)
+	 * @see #setTarget(Attribute)
 	 * @see erdMetamodel.ErdMetamodelPackage#getRelationship_Target()
 	 * @model
 	 * @generated
 	 */
-	Entity getTarget();
+	Attribute getTarget();
 
 	/**
 	 * Sets the value of the '{@link erdMetamodel.Relationship#getTarget <em>Target</em>}' reference.
@@ -70,19 +72,41 @@ public interface Relationship extends EObject {
 	 * @see #getTarget()
 	 * @generated
 	 */
-	void setTarget(Entity value);
+	void setTarget(Attribute value);
+
+	/**
+	 * Returns the value of the '<em><b>Target Table</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Target Table</em>' reference.
+	 * @see #setTargetTable(Entity)
+	 * @see erdMetamodel.ErdMetamodelPackage#getRelationship_TargetTable()
+	 * @model
+	 * @generated
+	 */
+	Entity getTargetTable();
+
+	/**
+	 * Sets the value of the '{@link erdMetamodel.Relationship#getTargetTable <em>Target Table</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Target Table</em>' reference.
+	 * @see #getTargetTable()
+	 * @generated
+	 */
+	void setTargetTable(Entity value);
 
 	/**
 	 * Returns the value of the '<em><b>Source</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Source</em>' reference.
-	 * @see #setSource(Entity)
+	 * @see #setSource(Attribute)
 	 * @see erdMetamodel.ErdMetamodelPackage#getRelationship_Source()
 	 * @model
 	 * @generated
 	 */
-	Entity getSource();
+	Attribute getSource();
 
 	/**
 	 * Sets the value of the '{@link erdMetamodel.Relationship#getSource <em>Source</em>}' reference.
@@ -92,7 +116,29 @@ public interface Relationship extends EObject {
 	 * @see #getSource()
 	 * @generated
 	 */
-	void setSource(Entity value);
+	void setSource(Attribute value);
+
+	/**
+	 * Returns the value of the '<em><b>Source Table</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Source Table</em>' reference.
+	 * @see #setSourceTable(Entity)
+	 * @see erdMetamodel.ErdMetamodelPackage#getRelationship_SourceTable()
+	 * @model
+	 * @generated
+	 */
+	Entity getSourceTable();
+
+	/**
+	 * Sets the value of the '{@link erdMetamodel.Relationship#getSourceTable <em>Source Table</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Source Table</em>' reference.
+	 * @see #getSourceTable()
+	 * @generated
+	 */
+	void setSourceTable(Entity value);
 
 	/**
 	 * Returns the value of the '<em><b>Type</b></em>' attribute.

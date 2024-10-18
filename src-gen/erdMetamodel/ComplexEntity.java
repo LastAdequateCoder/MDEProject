@@ -7,8 +7,6 @@ import java.util.Map;
 import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.EList;
 
-import org.eclipse.emf.ecore.EObject;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Complex Entity</b></em>'.
@@ -25,7 +23,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model annotation="http://www.eclipse.org/emf/2002/Ecore constraints='AggregatedEntitiesExist'"
  * @generated
  */
-public interface ComplexEntity extends EObject {
+public interface ComplexEntity extends Entity {
 	/**
 	 * Returns the value of the '<em><b>Aggregated Entities</b></em>' reference list.
 	 * The list contents are of type {@link erdMetamodel.Entity}.

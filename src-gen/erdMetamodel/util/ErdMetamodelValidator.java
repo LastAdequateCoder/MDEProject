@@ -72,20 +72,12 @@ public class ErdMetamodelValidator extends EObjectValidator {
 	public static final int WEAK_ENTITY__IDENTIFYING_RELATIONSHIP_EXISTS = 4;
 
 	/**
-	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Aggregated Entities Exist' of 'Complex Entity'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public static final int COMPLEX_ENTITY__AGGREGATED_ENTITIES_EXIST = 5;
-
-	/**
 	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Valid Data Type' of 'Attribute'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final int ATTRIBUTE__VALID_DATA_TYPE = 6;
+	public static final int ATTRIBUTE__VALID_DATA_TYPE = 5;
 
 	/**
 	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Sub Attributes Exist' of 'Composite Attribute'.
@@ -93,7 +85,7 @@ public class ErdMetamodelValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final int COMPOSITE_ATTRIBUTE__SUB_ATTRIBUTES_EXIST = 7;
+	public static final int COMPOSITE_ATTRIBUTE__SUB_ATTRIBUTES_EXIST = 6;
 
 	/**
 	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Valid Source And Target' of 'Relationship'.
@@ -101,7 +93,7 @@ public class ErdMetamodelValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final int RELATIONSHIP__VALID_SOURCE_AND_TARGET = 8;
+	public static final int RELATIONSHIP__VALID_SOURCE_AND_TARGET = 7;
 
 	/**
 	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Relationship Name Not Empty' of 'Relationship'.
@@ -109,7 +101,7 @@ public class ErdMetamodelValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final int RELATIONSHIP__RELATIONSHIP_NAME_NOT_EMPTY = 9;
+	public static final int RELATIONSHIP__RELATIONSHIP_NAME_NOT_EMPTY = 8;
 
 	/**
 	 * A constant with a fixed name that can be used as the base value for additional hand written constants.
@@ -117,7 +109,7 @@ public class ErdMetamodelValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private static final int GENERATED_DIAGNOSTIC_CODE_COUNT = 9;
+	private static final int GENERATED_DIAGNOSTIC_CODE_COUNT = 8;
 
 	/**
 	 * A constant with a fixed name that can be used as the base value for additional hand written constants in a derived class.
@@ -164,20 +156,18 @@ public class ErdMetamodelValidator extends EObjectValidator {
 			return validateEntity((Entity) value, diagnostics, context);
 		case ErdMetamodelPackage.WEAK_ENTITY:
 			return validateWeakEntity((WeakEntity) value, diagnostics, context);
-		case ErdMetamodelPackage.COMPLEX_ENTITY:
-			return validateComplexEntity((ComplexEntity) value, diagnostics, context);
 		case ErdMetamodelPackage.ATTRIBUTE:
 			return validateAttribute((Attribute) value, diagnostics, context);
 		case ErdMetamodelPackage.COMPOSITE_ATTRIBUTE:
 			return validateCompositeAttribute((CompositeAttribute) value, diagnostics, context);
 		case ErdMetamodelPackage.RELATIONSHIP:
 			return validateRelationship((Relationship) value, diagnostics, context);
-		case ErdMetamodelPackage.CONSTRAINT:
-			return validateConstraint((Constraint) value, diagnostics, context);
 		case ErdMetamodelPackage.DATA_TYPES:
 			return validateDataTypes((DataTypes) value, diagnostics, context);
 		case ErdMetamodelPackage.RELATIONSHIP_TYPE:
 			return validateRelationshipType((RelationshipType) value, diagnostics, context);
+		case ErdMetamodelPackage.CONSTRAINT_TYPE:
+			return validateConstraintType((ConstraintType) value, diagnostics, context);
 		default:
 			return true;
 		}
@@ -307,46 +297,6 @@ public class ErdMetamodelValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateComplexEntity(ComplexEntity complexEntity, DiagnosticChain diagnostics,
-			Map<Object, Object> context) {
-		if (!validate_NoCircularContainment(complexEntity, diagnostics, context))
-			return false;
-		boolean result = validate_EveryMultiplicityConforms(complexEntity, diagnostics, context);
-		if (result || diagnostics != null)
-			result &= validate_EveryDataValueConforms(complexEntity, diagnostics, context);
-		if (result || diagnostics != null)
-			result &= validate_EveryReferenceIsContained(complexEntity, diagnostics, context);
-		if (result || diagnostics != null)
-			result &= validate_EveryBidirectionalReferenceIsPaired(complexEntity, diagnostics, context);
-		if (result || diagnostics != null)
-			result &= validate_EveryProxyResolves(complexEntity, diagnostics, context);
-		if (result || diagnostics != null)
-			result &= validate_UniqueID(complexEntity, diagnostics, context);
-		if (result || diagnostics != null)
-			result &= validate_EveryKeyUnique(complexEntity, diagnostics, context);
-		if (result || diagnostics != null)
-			result &= validate_EveryMapEntryUnique(complexEntity, diagnostics, context);
-		if (result || diagnostics != null)
-			result &= validateComplexEntity_AggregatedEntitiesExist(complexEntity, diagnostics, context);
-		return result;
-	}
-
-	/**
-	 * Validates the AggregatedEntitiesExist constraint of '<em>Complex Entity</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateComplexEntity_AggregatedEntitiesExist(ComplexEntity complexEntity,
-			DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return complexEntity.AggregatedEntitiesExist(diagnostics, context);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public boolean validateAttribute(Attribute attribute, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		if (!validate_NoCircularContainment(attribute, diagnostics, context))
 			return false;
@@ -405,6 +355,8 @@ public class ErdMetamodelValidator extends EObjectValidator {
 			result &= validate_EveryKeyUnique(compositeAttribute, diagnostics, context);
 		if (result || diagnostics != null)
 			result &= validate_EveryMapEntryUnique(compositeAttribute, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validateAttribute_ValidDataType(compositeAttribute, diagnostics, context);
 		if (result || diagnostics != null)
 			result &= validateCompositeAttribute_SubAttributesExist(compositeAttribute, diagnostics, context);
 		return result;
@@ -479,15 +431,6 @@ public class ErdMetamodelValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateConstraint(Constraint constraint, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(constraint, diagnostics, context);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public boolean validateDataTypes(DataTypes dataTypes, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return true;
 	}
@@ -498,6 +441,16 @@ public class ErdMetamodelValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateRelationshipType(RelationshipType relationshipType, DiagnosticChain diagnostics,
+			Map<Object, Object> context) {
+		return true;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateConstraintType(ConstraintType constraintType, DiagnosticChain diagnostics,
 			Map<Object, Object> context) {
 		return true;
 	}

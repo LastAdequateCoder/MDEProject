@@ -3,12 +3,12 @@
 package erdMetamodel.impl;
 
 import erdMetamodel.Attribute;
+import erdMetamodel.ConstraintType;
 import erdMetamodel.DataTypes;
 import erdMetamodel.ErdMetamodelPackage;
 import erdMetamodel.ErdMetamodelTables;
 
 import java.lang.reflect.InvocationTargetException;
-
 import java.util.Map;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -17,10 +17,8 @@ import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
 import org.eclipse.ocl.pivot.evaluation.Executor;
 
 import org.eclipse.ocl.pivot.ids.EnumerationLiteralId;
@@ -50,6 +48,7 @@ import org.eclipse.ocl.pivot.values.IntegerValue;
  *   <li>{@link erdMetamodel.impl.AttributeImpl#getDataType <em>Data Type</em>}</li>
  *   <li>{@link erdMetamodel.impl.AttributeImpl#isIsComposite <em>Is Composite</em>}</li>
  *   <li>{@link erdMetamodel.impl.AttributeImpl#isIsDerived <em>Is Derived</em>}</li>
+ *   <li>{@link erdMetamodel.impl.AttributeImpl#getConstraintType <em>Constraint Type</em>}</li>
  * </ul>
  *
  * @generated
@@ -154,6 +153,26 @@ public class AttributeImpl extends MinimalEObjectImpl.Container implements Attri
 	 * @ordered
 	 */
 	protected boolean isDerived = IS_DERIVED_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getConstraintType() <em>Constraint Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getConstraintType()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final ConstraintType CONSTRAINT_TYPE_EDEFAULT = ConstraintType.NONE;
+
+	/**
+	 * The cached value of the '{@link #getConstraintType() <em>Constraint Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getConstraintType()
+	 * @generated
+	 * @ordered
+	 */
+	protected ConstraintType constraintType = CONSTRAINT_TYPE_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -299,6 +318,30 @@ public class AttributeImpl extends MinimalEObjectImpl.Container implements Attri
 	 * @generated
 	 */
 	@Override
+	public ConstraintType getConstraintType() {
+		return constraintType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setConstraintType(ConstraintType newConstraintType) {
+		ConstraintType oldConstraintType = constraintType;
+		constraintType = newConstraintType == null ? CONSTRAINT_TYPE_EDEFAULT : newConstraintType;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ErdMetamodelPackage.ATTRIBUTE__CONSTRAINT_TYPE,
+					oldConstraintType, constraintType));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public boolean ValidDataType(final DiagnosticChain diagnostics, final Map<Object, Object> context) {
 		final String constraintName = "Attribute::ValidDataType";
 		try {
@@ -315,14 +358,14 @@ public class AttributeImpl extends MinimalEObjectImpl.Container implements Attri
 			 *         constraintName.logDiagnostic(self, null, diagnostics, context, null, severity, result, 0)
 			 *     endif
 			 */
-			final /*@NonInvalid*/ Executor executor = PivotUtil.getExecutor(this, context);
+			final /*@NonInvalid*/ Executor executor = PivotUtil.getExecutor(this);
 			final /*@NonInvalid*/ IntegerValue severity_0 = CGStringGetSeverityOperation.INSTANCE.evaluate(executor,
 					ErdMetamodelPackage.Literals.ATTRIBUTE___VALID_DATA_TYPE__DIAGNOSTICCHAIN_MAP);
 			final /*@NonInvalid*/ boolean le = OclComparableLessThanEqualOperation.INSTANCE
 					.evaluate(executor, severity_0, ErdMetamodelTables.INT_0).booleanValue();
-			/*@NonInvalid*/ boolean local_0;
+			/*@NonInvalid*/ boolean IF_le;
 			if (le) {
-				local_0 = true;
+				IF_le = true;
 			} else {
 				/*@Caught*/ Object CAUGHT_result;
 				try {
@@ -365,9 +408,9 @@ public class AttributeImpl extends MinimalEObjectImpl.Container implements Attri
 						.evaluate(executor, TypeId.BOOLEAN, constraintName, this, (Object) null, diagnostics, context,
 								(Object) null, severity_0, CAUGHT_result, ErdMetamodelTables.INT_0)
 						.booleanValue();
-				local_0 = logDiagnostic;
+				IF_le = logDiagnostic;
 			}
-			return local_0;
+			return IF_le;
 		} catch (Throwable e) {
 			return ValueUtil.validationFailedDiagnostic(constraintName, this, diagnostics, context, e);
 		}
@@ -391,6 +434,8 @@ public class AttributeImpl extends MinimalEObjectImpl.Container implements Attri
 			return isIsComposite();
 		case ErdMetamodelPackage.ATTRIBUTE__IS_DERIVED:
 			return isIsDerived();
+		case ErdMetamodelPackage.ATTRIBUTE__CONSTRAINT_TYPE:
+			return getConstraintType();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -400,6 +445,7 @@ public class AttributeImpl extends MinimalEObjectImpl.Container implements Attri
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
@@ -417,6 +463,9 @@ public class AttributeImpl extends MinimalEObjectImpl.Container implements Attri
 			return;
 		case ErdMetamodelPackage.ATTRIBUTE__IS_DERIVED:
 			setIsDerived((Boolean) newValue);
+			return;
+		case ErdMetamodelPackage.ATTRIBUTE__CONSTRAINT_TYPE:
+			setConstraintType((ConstraintType) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -445,6 +494,9 @@ public class AttributeImpl extends MinimalEObjectImpl.Container implements Attri
 		case ErdMetamodelPackage.ATTRIBUTE__IS_DERIVED:
 			setIsDerived(IS_DERIVED_EDEFAULT);
 			return;
+		case ErdMetamodelPackage.ATTRIBUTE__CONSTRAINT_TYPE:
+			setConstraintType(CONSTRAINT_TYPE_EDEFAULT);
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -467,6 +519,8 @@ public class AttributeImpl extends MinimalEObjectImpl.Container implements Attri
 			return isComposite != IS_COMPOSITE_EDEFAULT;
 		case ErdMetamodelPackage.ATTRIBUTE__IS_DERIVED:
 			return isDerived != IS_DERIVED_EDEFAULT;
+		case ErdMetamodelPackage.ATTRIBUTE__CONSTRAINT_TYPE:
+			return constraintType != CONSTRAINT_TYPE_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -507,6 +561,8 @@ public class AttributeImpl extends MinimalEObjectImpl.Container implements Attri
 		result.append(isComposite);
 		result.append(", isDerived: ");
 		result.append(isDerived);
+		result.append(", constraintType: ");
+		result.append(constraintType);
 		result.append(')');
 		return result.toString();
 	}

@@ -17,9 +17,6 @@ import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
-
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 
 import org.eclipse.ocl.pivot.evaluation.Executor;
@@ -53,7 +50,7 @@ import org.eclipse.ocl.pivot.values.OrderedSetValue;
  *
  * @generated
  */
-public class CompositeAttributeImpl extends MinimalEObjectImpl.Container implements CompositeAttribute {
+public class CompositeAttributeImpl extends AttributeImpl implements CompositeAttribute {
 	/**
 	 * The cached value of the '{@link #getSubAttributes() <em>Sub Attributes</em>}' reference list.
 	 * <!-- begin-user-doc -->
@@ -119,15 +116,15 @@ public class CompositeAttributeImpl extends MinimalEObjectImpl.Container impleme
 			 *         constraintName.logDiagnostic(self, null, diagnostics, context, null, severity, result, 0)
 			 *     endif
 			 */
-			final /*@NonInvalid*/ Executor executor = PivotUtil.getExecutor(this, context);
+			final /*@NonInvalid*/ Executor executor = PivotUtil.getExecutor(this);
 			final /*@NonInvalid*/ IdResolver idResolver = executor.getIdResolver();
 			final /*@NonInvalid*/ IntegerValue severity_0 = CGStringGetSeverityOperation.INSTANCE.evaluate(executor,
 					ErdMetamodelPackage.Literals.COMPOSITE_ATTRIBUTE___SUB_ATTRIBUTES_EXIST__DIAGNOSTICCHAIN_MAP);
 			final /*@NonInvalid*/ boolean le = OclComparableLessThanEqualOperation.INSTANCE
 					.evaluate(executor, severity_0, ErdMetamodelTables.INT_0).booleanValue();
-			/*@NonInvalid*/ boolean local_0;
+			/*@NonInvalid*/ boolean IF_le;
 			if (le) {
-				local_0 = true;
+				IF_le = true;
 			} else {
 				final /*@NonInvalid*/ List<Attribute> subAttributes = this.getSubAttributes();
 				final /*@NonInvalid*/ OrderedSetValue BOXED_subAttributes = idResolver
@@ -148,9 +145,9 @@ public class CompositeAttributeImpl extends MinimalEObjectImpl.Container impleme
 						.evaluate(executor, TypeId.BOOLEAN, constraintName, this, (Object) null, diagnostics, context,
 								(Object) null, severity_0, result, ErdMetamodelTables.INT_0)
 						.booleanValue();
-				local_0 = logDiagnostic;
+				IF_le = logDiagnostic;
 			}
-			return local_0;
+			return IF_le;
 		} catch (Throwable e) {
 			return ValueUtil.validationFailedDiagnostic(constraintName, this, diagnostics, context, e);
 		}

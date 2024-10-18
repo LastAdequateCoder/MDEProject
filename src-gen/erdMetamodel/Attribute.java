@@ -5,7 +5,6 @@ package erdMetamodel;
 import java.util.Map;
 
 import org.eclipse.emf.common.util.DiagnosticChain;
-
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -22,6 +21,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link erdMetamodel.Attribute#getDataType <em>Data Type</em>}</li>
  *   <li>{@link erdMetamodel.Attribute#isIsComposite <em>Is Composite</em>}</li>
  *   <li>{@link erdMetamodel.Attribute#isIsDerived <em>Is Derived</em>}</li>
+ *   <li>{@link erdMetamodel.Attribute#getConstraintType <em>Constraint Type</em>}</li>
  * </ul>
  *
  * @see erdMetamodel.ErdMetamodelPackage#getAttribute()
@@ -145,6 +145,32 @@ public interface Attribute extends EObject {
 	 * @generated
 	 */
 	void setIsDerived(boolean value);
+
+	/**
+	 * Returns the value of the '<em><b>Constraint Type</b></em>' attribute.
+	 * The default value is <code>"NONE"</code>.
+	 * The literals are from the enumeration {@link erdMetamodel.ConstraintType}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Constraint Type</em>' attribute.
+	 * @see erdMetamodel.ConstraintType
+	 * @see #setConstraintType(ConstraintType)
+	 * @see erdMetamodel.ErdMetamodelPackage#getAttribute_ConstraintType()
+	 * @model default="NONE"
+	 * @generated
+	 */
+	ConstraintType getConstraintType();
+
+	/**
+	 * Sets the value of the '{@link erdMetamodel.Attribute#getConstraintType <em>Constraint Type</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Constraint Type</em>' attribute.
+	 * @see erdMetamodel.ConstraintType
+	 * @see #getConstraintType()
+	 * @generated
+	 */
+	void setConstraintType(ConstraintType value);
 
 	/**
 	 * <!-- begin-user-doc -->

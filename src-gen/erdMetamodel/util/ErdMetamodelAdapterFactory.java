@@ -82,11 +82,6 @@ public class ErdMetamodelAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
-		public Adapter caseComplexEntity(ComplexEntity object) {
-			return createComplexEntityAdapter();
-		}
-
-		@Override
 		public Adapter caseAttribute(Attribute object) {
 			return createAttributeAdapter();
 		}
@@ -99,11 +94,6 @@ public class ErdMetamodelAdapterFactory extends AdapterFactoryImpl {
 		@Override
 		public Adapter caseRelationship(Relationship object) {
 			return createRelationshipAdapter();
-		}
-
-		@Override
-		public Adapter caseConstraint(Constraint object) {
-			return createConstraintAdapter();
 		}
 
 		@Override
@@ -168,20 +158,6 @@ public class ErdMetamodelAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link erdMetamodel.ComplexEntity <em>Complex Entity</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see erdMetamodel.ComplexEntity
-	 * @generated
-	 */
-	public Adapter createComplexEntityAdapter() {
-		return null;
-	}
-
-	/**
 	 * Creates a new adapter for an object of class '{@link erdMetamodel.Attribute <em>Attribute</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -220,20 +196,6 @@ public class ErdMetamodelAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createRelationshipAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link erdMetamodel.Constraint <em>Constraint</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see erdMetamodel.Constraint
-	 * @generated
-	 */
-	public Adapter createConstraintAdapter() {
 		return null;
 	}
 

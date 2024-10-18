@@ -10,104 +10,103 @@ import org.eclipse.emf.common.util.Enumerator;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the literals of the enumeration '<em><b>Relationship Type</b></em>',
+ * A representation of the literals of the enumeration '<em><b>Constraint Type</b></em>',
  * and utility methods for working with them.
  * <!-- end-user-doc -->
- * @see erdMetamodel.ErdMetamodelPackage#getRelationshipType()
+ * @see erdMetamodel.ErdMetamodelPackage#getConstraintType()
  * @model
  * @generated
  */
-public enum RelationshipType implements Enumerator {
+public enum ConstraintType implements Enumerator {
 	/**
-	 * The '<em><b>One To One</b></em>' literal object.
+	 * The '<em><b>NONE</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #ONE_TO_ONE_VALUE
+	 * @see #NONE_VALUE
 	 * @generated
 	 * @ordered
 	 */
-	ONE_TO_ONE(0, "OneToOne", "OneToOne"),
-
+	NONE(0, "NONE", "NONE"),
 	/**
-	 * The '<em><b>One To Many</b></em>' literal object.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #ONE_TO_MANY_VALUE
-	 * @generated
-	 * @ordered
-	 */
-	ONE_TO_MANY(1, "OneToMany", "OneToMany"),
-	/**
-	 * The '<em><b>Many To Many</b></em>' literal object.
+	 * The '<em><b>UNIQUE</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	* <!-- end-user-doc -->
-	 * @see #MANY_TO_MANY_VALUE
+	 * @see #UNIQUE_VALUE
 	 * @generated
 	 * @ordered
 	 */
-	MANY_TO_MANY(2, "ManyToMany", "ManyToMany");
+	UNIQUE(1, "UNIQUE", "UNIQUE"),
 
 	/**
-	 * The '<em><b>One To One</b></em>' literal value.
+	 * The '<em><b>CHECK</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #ONE_TO_ONE
-	 * @model name="OneToOne"
+	 * @see #CHECK_VALUE
 	 * @generated
 	 * @ordered
 	 */
-	public static final int ONE_TO_ONE_VALUE = 0;
+	CHECK(2, "CHECK", "CHECK");
 
 	/**
-	 * The '<em><b>One To Many</b></em>' literal value.
+	 * The '<em><b>NONE</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #ONE_TO_MANY
-	 * @model name="OneToMany"
+	 * @see #NONE
+	 * @model
 	 * @generated
 	 * @ordered
 	 */
-	public static final int ONE_TO_MANY_VALUE = 1;
+	public static final int NONE_VALUE = 0;
 
 	/**
-	 * The '<em><b>Many To Many</b></em>' literal value.
+	 * The '<em><b>UNIQUE</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #MANY_TO_MANY
-	 * @model name="ManyToMany"
+	 * @see #UNIQUE
+	 * @model
 	 * @generated
 	 * @ordered
 	 */
-	public static final int MANY_TO_MANY_VALUE = 2;
+	public static final int UNIQUE_VALUE = 1;
 
 	/**
-	 * An array of all the '<em><b>Relationship Type</b></em>' enumerators.
+	 * The '<em><b>CHECK</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #CHECK
+	 * @model
+	 * @generated
+	 * @ordered
+	 */
+	public static final int CHECK_VALUE = 2;
+
+	/**
+	 * An array of all the '<em><b>Constraint Type</b></em>' enumerators.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private static final RelationshipType[] VALUES_ARRAY = new RelationshipType[] { ONE_TO_ONE, ONE_TO_MANY,
-			MANY_TO_MANY, };
+	private static final ConstraintType[] VALUES_ARRAY = new ConstraintType[] { NONE, UNIQUE, CHECK, };
 
 	/**
-	 * A public read-only list of all the '<em><b>Relationship Type</b></em>' enumerators.
+	 * A public read-only list of all the '<em><b>Constraint Type</b></em>' enumerators.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final List<RelationshipType> VALUES = Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
+	public static final List<ConstraintType> VALUES = Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
 
 	/**
-	 * Returns the '<em><b>Relationship Type</b></em>' literal with the specified literal value.
+	 * Returns the '<em><b>Constraint Type</b></em>' literal with the specified literal value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param literal the literal.
 	 * @return the matching enumerator or <code>null</code>.
 	 * @generated
 	 */
-	public static RelationshipType get(String literal) {
+	public static ConstraintType get(String literal) {
 		for (int i = 0; i < VALUES_ARRAY.length; ++i) {
-			RelationshipType result = VALUES_ARRAY[i];
+			ConstraintType result = VALUES_ARRAY[i];
 			if (result.toString().equals(literal)) {
 				return result;
 			}
@@ -116,16 +115,16 @@ public enum RelationshipType implements Enumerator {
 	}
 
 	/**
-	 * Returns the '<em><b>Relationship Type</b></em>' literal with the specified name.
+	 * Returns the '<em><b>Constraint Type</b></em>' literal with the specified name.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param name the name.
 	 * @return the matching enumerator or <code>null</code>.
 	 * @generated
 	 */
-	public static RelationshipType getByName(String name) {
+	public static ConstraintType getByName(String name) {
 		for (int i = 0; i < VALUES_ARRAY.length; ++i) {
-			RelationshipType result = VALUES_ARRAY[i];
+			ConstraintType result = VALUES_ARRAY[i];
 			if (result.getName().equals(name)) {
 				return result;
 			}
@@ -134,21 +133,21 @@ public enum RelationshipType implements Enumerator {
 	}
 
 	/**
-	 * Returns the '<em><b>Relationship Type</b></em>' literal with the specified integer value.
+	 * Returns the '<em><b>Constraint Type</b></em>' literal with the specified integer value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the integer value.
 	 * @return the matching enumerator or <code>null</code>.
 	 * @generated
 	 */
-	public static RelationshipType get(int value) {
+	public static ConstraintType get(int value) {
 		switch (value) {
-		case ONE_TO_ONE_VALUE:
-			return ONE_TO_ONE;
-		case ONE_TO_MANY_VALUE:
-			return ONE_TO_MANY;
-		case MANY_TO_MANY_VALUE:
-			return MANY_TO_MANY;
+		case NONE_VALUE:
+			return NONE;
+		case UNIQUE_VALUE:
+			return UNIQUE;
+		case CHECK_VALUE:
+			return CHECK;
 		}
 		return null;
 	}
@@ -180,7 +179,7 @@ public enum RelationshipType implements Enumerator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private RelationshipType(int value, String name, String literal) {
+	private ConstraintType(int value, String name, String literal) {
 		this.value = value;
 		this.name = name;
 		this.literal = literal;
@@ -227,4 +226,4 @@ public enum RelationshipType implements Enumerator {
 		return literal;
 	}
 
-} //RelationshipType
+} //ConstraintType

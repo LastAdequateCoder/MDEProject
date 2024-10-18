@@ -1,0 +1,114 @@
+module ERDToSQLTransformation;
+create OUT: SqlDatabaseMetamodel from IN: ErdMetamodel;
+
+-- Transformation rules for Entities to Tables
+rule Entity2Table {
+    from
+        e: ErdMetamodel!Entity (not e.oclIsTypeOf(ErdMetamodel!WeakEntity))
+    to
+        t: SqlDatabaseMetamodel!Table (
+            name <- e.name,
+            columns <- e.attributes->collect(a | thisModule.resolveTemp(a, 'column')),
+            primaryKey <- thisModule.resolveTemp(e.attributes->select(a | a.isPrimaryKey)->first(), 'primaryKey'),
+			foreignKeys <- thisModule.getForeignKeysForEntity(e)
+        )
+}
+
+helper def: getForeignKeysForEntity(e: ErdMetamodel!Entity) : Sequence(SqlDatabaseMetamodel!ForeignKey) =
+    ErdMetamodel!Model.allInstances()->first().relationships
+    ->select(r | r.sourceTable = e)
+    ->collect(r | thisModule.resolveTemp(r, 'foreignKey'));
+
+helper def: callEntity2Table() : Sequence(SqlDatabaseMetamodel!Table) =
+    ErdMetamodel!Entity.allInstances()->collect(e | thisModule.Entity2Table(e));
+
+-- Transformation rules for Attributes to Columns
+rule Attribute2Column {
+    from
+        a: ErdMetamodel!Attribute (not a.isPrimaryKey )
+    to
+        column: SqlDatabaseMetamodel!Column (  -- Changed label to 'column'
+            name <- a.name,
+            dataType <- thisModule.mapDataType(a.dataType),
+			constraintTypeSQL <- thisModule.mapConstraintType(a.constraintType),
+            isNullable <- not a.isPrimaryKey,
+            isAutoIncrement <- a.isPrimaryKey
+        )
+}
+
+helper def: mapConstraintType(dt: ErdMetamodel!ConstraintType): SqlDatabaseMetamodel!SQLConstraintType =
+    if dt = #NONE then
+        #NONE
+    else
+        if dt = #UNIQUE then
+            #UNIQUE
+        else
+            if dt = #CHECK then
+                #CHECK
+            else
+                #NONE
+            endif
+        endif
+    endif;
+
+-- Transformation rules for Relationships to ForeignKeys
+rule Relationship2ForeignKey {
+    from
+        r: ErdMetamodel!Relationship
+    to
+        foreignKey: SqlDatabaseMetamodel!ForeignKey (
+            name <- r.name,
+            dataType <- thisModule.mapDataType(r.target.dataType), -- Make sure you have the correct data type mapping
+			referencedTable <- r.targetTable, -- Target table becomes the referenced table
+            referencedColumn <- r.target
+        )
+}
+
+-- Helper to map ERD data types to SQL data types
+helper def: mapDataType(dt: ErdMetamodel!DataType): SqlDatabaseMetamodel!SQLDataTypes =
+    if dt = #INT then
+        #INT
+    else
+        if dt = #VARCHAR then
+            #VARCHAR
+        else
+            if dt = #DATE then
+                #DATE
+            else
+                #VARCHAR
+            endif
+        endif
+    endif;
+
+-- Handling Weak Entities as Tables
+rule WeakEntity2Table {
+    from
+        we: ErdMetamodel!WeakEntity
+    to
+        t: SqlDatabaseMetamodel!Table (
+            name <- we.name,
+            columns <- we.attributes -> collect(a | thisModule.resolveTemp(a, 'column')),
+            primaryKey <- we.identifyingRelationship.sourceTable.attributes -> select(a | a.isPrimaryKey) -> first(),
+            foreignKeys <- thisModule.getForeignKeysForEntity(we)
+        )
+}
+
+
+-- Rule for handling Primary Keys
+rule PrimaryKey2Sql {
+    from
+        pk: ErdMetamodel!Attribute (pk.isPrimaryKey = true)
+    to
+        primaryKey: SqlDatabaseMetamodel!PrimaryKey (  -- Changed label to 'primaryKey'
+            name <- pk.name,
+            dataType <- thisModule.mapDataType(pk.dataType),
+            isAutoIncrement <- true,
+			isNullable <- false,
+			constraintTypeSQL <- thisModule.mapConstraintType(pk.constraintType)
+        )
+}
+
+
+-- Helper to capitalize the first letter of a string
+helper def: capitalize(s: String): String =
+    s.substring(1, 1).toUpperCase() + s.substring(2, s.size());

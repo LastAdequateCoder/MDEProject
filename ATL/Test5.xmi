@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<erdMetamodel:Model xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:erdMetamodel="http://www.example.org/erdMetamodel" name="CompanyModel">
+  <Entity name="Company">
+    <attributes name="Name" isPrimaryKey="true" dataType="VARCHAR" constraintType="UNIQUE"/>
+    <attributes name="registrationNumber" constraintType="CHECK"/>
+    <attributes name="CompanyEmployee" constraintType="UNIQUE"/>
+    <attributes name="CompanyProject"/>
+  </Entity>
+  <Entity name="Employee">
+    <attributes name="EmployeeID" isPrimaryKey="true" constraintType="UNIQUE"/>
+    <attributes name="EmployeeName" dataType="VARCHAR" constraintType="CHECK"/>
+    <attributes name="EmployeeAge"/>
+    <attributes xsi:type="erdMetamodel:CompositeAttribute" name="EmployeeAddress" isComposite="true" subAttributes="//@Entity.1/@attributes.5 //@Entity.1/@attributes.4 //@Entity.1/@attributes.6"/>
+    <attributes name="postalCode"/>
+    <attributes name="cityName" dataType="VARCHAR"/>
+    <attributes name="streetName" dataType="VARCHAR"/>
+  </Entity>
+  <Entity name="Department">
+    <attributes name="departmentID" isPrimaryKey="true"/>
+    <attributes name="departmentName" dataType="VARCHAR"/>
+  </Entity>
+  <Entity xsi:type="erdMetamodel:WeakEntity" name="Project" identifyingRelationship="//@relationships.0">
+    <attributes name="projectID" isPrimaryKey="true"/>
+    <attributes name="Name" dataType="VARCHAR"/>
+  </Entity>
+  <relationships name="ProjectCompanyRelationship" target="//@Entity.0/@attributes.3" targetTable="//@Entity.0" source="//@Entity.3/@attributes.0" sourceTable="//@Entity.3" type="OneToMany"/>
+  <relationships name="EmployeeCompanyRelationship" target="//@Entity.0/@attributes.2" targetTable="//@Entity.0" source="//@Entity.1/@attributes.0" sourceTable="//@Entity.1" type="OneToMany"/>
+  <relationships name="EmployeeDepartmentRelationship" target="//@Entity.2/@attributes.0" targetTable="//@Entity.2" source="//@Entity.1/@attributes.0" sourceTable="//@Entity.1" type="ManyToMany"/>
+</erdMetamodel:Model>

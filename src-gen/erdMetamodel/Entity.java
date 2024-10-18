@@ -20,7 +20,6 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link erdMetamodel.Entity#getName <em>Name</em>}</li>
  *   <li>{@link erdMetamodel.Entity#getAttributes <em>Attributes</em>}</li>
- *   <li>{@link erdMetamodel.Entity#getForeignKeys <em>Foreign Keys</em>}</li>
  * </ul>
  *
  * @see erdMetamodel.ErdMetamodelPackage#getEntity()
@@ -61,18 +60,6 @@ public interface Entity extends EObject {
 	 * @generated
 	 */
 	EList<Attribute> getAttributes();
-
-	/**
-	 * Returns the value of the '<em><b>Foreign Keys</b></em>' reference list.
-	 * The list contents are of type {@link erdMetamodel.Attribute}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Foreign Keys</em>' reference list.
-	 * @see erdMetamodel.ErdMetamodelPackage#getEntity_ForeignKeys()
-	 * @model
-	 * @generated
-	 */
-	EList<Attribute> getForeignKeys();
 
 	/**
 	 * <!-- begin-user-doc -->

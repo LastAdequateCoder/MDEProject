@@ -2,6 +2,7 @@
  */
 package erdMetamodel.impl;
 
+import erdMetamodel.Attribute;
 import erdMetamodel.Entity;
 import erdMetamodel.ErdMetamodelPackage;
 import erdMetamodel.ErdMetamodelTables;
@@ -50,7 +51,9 @@ import org.eclipse.ocl.pivot.values.InvalidValueException;
  * <ul>
  *   <li>{@link erdMetamodel.impl.RelationshipImpl#getName <em>Name</em>}</li>
  *   <li>{@link erdMetamodel.impl.RelationshipImpl#getTarget <em>Target</em>}</li>
+ *   <li>{@link erdMetamodel.impl.RelationshipImpl#getTargetTable <em>Target Table</em>}</li>
  *   <li>{@link erdMetamodel.impl.RelationshipImpl#getSource <em>Source</em>}</li>
+ *   <li>{@link erdMetamodel.impl.RelationshipImpl#getSourceTable <em>Source Table</em>}</li>
  *   <li>{@link erdMetamodel.impl.RelationshipImpl#getType <em>Type</em>}</li>
  * </ul>
  *
@@ -85,7 +88,17 @@ public class RelationshipImpl extends MinimalEObjectImpl.Container implements Re
 	 * @generated
 	 * @ordered
 	 */
-	protected Entity target;
+	protected Attribute target;
+
+	/**
+	 * The cached value of the '{@link #getTargetTable() <em>Target Table</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTargetTable()
+	 * @generated
+	 * @ordered
+	 */
+	protected Entity targetTable;
 
 	/**
 	 * The cached value of the '{@link #getSource() <em>Source</em>}' reference.
@@ -95,7 +108,17 @@ public class RelationshipImpl extends MinimalEObjectImpl.Container implements Re
 	 * @generated
 	 * @ordered
 	 */
-	protected Entity source;
+	protected Attribute source;
+
+	/**
+	 * The cached value of the '{@link #getSourceTable() <em>Source Table</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSourceTable()
+	 * @generated
+	 * @ordered
+	 */
+	protected Entity sourceTable;
 
 	/**
 	 * The default value of the '{@link #getType() <em>Type</em>}' attribute.
@@ -166,10 +189,10 @@ public class RelationshipImpl extends MinimalEObjectImpl.Container implements Re
 	 * @generated
 	 */
 	@Override
-	public Entity getTarget() {
+	public Attribute getTarget() {
 		if (target != null && target.eIsProxy()) {
 			InternalEObject oldTarget = (InternalEObject) target;
-			target = (Entity) eResolveProxy(oldTarget);
+			target = (Attribute) eResolveProxy(oldTarget);
 			if (target != oldTarget) {
 				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ErdMetamodelPackage.RELATIONSHIP__TARGET,
@@ -184,7 +207,7 @@ public class RelationshipImpl extends MinimalEObjectImpl.Container implements Re
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Entity basicGetTarget() {
+	public Attribute basicGetTarget() {
 		return target;
 	}
 
@@ -194,8 +217,8 @@ public class RelationshipImpl extends MinimalEObjectImpl.Container implements Re
 	 * @generated
 	 */
 	@Override
-	public void setTarget(Entity newTarget) {
-		Entity oldTarget = target;
+	public void setTarget(Attribute newTarget) {
+		Attribute oldTarget = target;
 		target = newTarget;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, ErdMetamodelPackage.RELATIONSHIP__TARGET, oldTarget,
@@ -208,10 +231,52 @@ public class RelationshipImpl extends MinimalEObjectImpl.Container implements Re
 	 * @generated
 	 */
 	@Override
-	public Entity getSource() {
+	public Entity getTargetTable() {
+		if (targetTable != null && targetTable.eIsProxy()) {
+			InternalEObject oldTargetTable = (InternalEObject) targetTable;
+			targetTable = (Entity) eResolveProxy(oldTargetTable);
+			if (targetTable != oldTargetTable) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE,
+							ErdMetamodelPackage.RELATIONSHIP__TARGET_TABLE, oldTargetTable, targetTable));
+			}
+		}
+		return targetTable;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Entity basicGetTargetTable() {
+		return targetTable;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setTargetTable(Entity newTargetTable) {
+		Entity oldTargetTable = targetTable;
+		targetTable = newTargetTable;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ErdMetamodelPackage.RELATIONSHIP__TARGET_TABLE,
+					oldTargetTable, targetTable));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Attribute getSource() {
 		if (source != null && source.eIsProxy()) {
 			InternalEObject oldSource = (InternalEObject) source;
-			source = (Entity) eResolveProxy(oldSource);
+			source = (Attribute) eResolveProxy(oldSource);
 			if (source != oldSource) {
 				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ErdMetamodelPackage.RELATIONSHIP__SOURCE,
@@ -226,7 +291,7 @@ public class RelationshipImpl extends MinimalEObjectImpl.Container implements Re
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Entity basicGetSource() {
+	public Attribute basicGetSource() {
 		return source;
 	}
 
@@ -236,12 +301,54 @@ public class RelationshipImpl extends MinimalEObjectImpl.Container implements Re
 	 * @generated
 	 */
 	@Override
-	public void setSource(Entity newSource) {
-		Entity oldSource = source;
+	public void setSource(Attribute newSource) {
+		Attribute oldSource = source;
 		source = newSource;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, ErdMetamodelPackage.RELATIONSHIP__SOURCE, oldSource,
 					source));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Entity getSourceTable() {
+		if (sourceTable != null && sourceTable.eIsProxy()) {
+			InternalEObject oldSourceTable = (InternalEObject) sourceTable;
+			sourceTable = (Entity) eResolveProxy(oldSourceTable);
+			if (sourceTable != oldSourceTable) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE,
+							ErdMetamodelPackage.RELATIONSHIP__SOURCE_TABLE, oldSourceTable, sourceTable));
+			}
+		}
+		return sourceTable;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Entity basicGetSourceTable() {
+		return sourceTable;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setSourceTable(Entity newSourceTable) {
+		Entity oldSourceTable = sourceTable;
+		sourceTable = newSourceTable;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ErdMetamodelPackage.RELATIONSHIP__SOURCE_TABLE,
+					oldSourceTable, sourceTable));
 	}
 
 	/**
@@ -292,18 +399,18 @@ public class RelationshipImpl extends MinimalEObjectImpl.Container implements Re
 			 *         constraintName.logDiagnostic(self, null, diagnostics, context, null, severity, result, 0)
 			 *     endif
 			 */
-			final /*@NonInvalid*/ Executor executor = PivotUtil.getExecutor(this, context);
+			final /*@NonInvalid*/ Executor executor = PivotUtil.getExecutor(this);
 			final /*@NonInvalid*/ IntegerValue severity_0 = CGStringGetSeverityOperation.INSTANCE.evaluate(executor,
 					ErdMetamodelPackage.Literals.RELATIONSHIP___VALID_SOURCE_AND_TARGET__DIAGNOSTICCHAIN_MAP);
 			final /*@NonInvalid*/ boolean le = OclComparableLessThanEqualOperation.INSTANCE
 					.evaluate(executor, severity_0, ErdMetamodelTables.INT_0).booleanValue();
-			/*@NonInvalid*/ boolean local_0;
+			/*@NonInvalid*/ boolean IF_le;
 			if (le) {
-				local_0 = true;
+				IF_le = true;
 			} else {
 				/*@Caught*/ Object CAUGHT_result;
 				try {
-					final /*@NonInvalid*/ Entity source = this.getSource();
+					final /*@NonInvalid*/ Attribute source = this.getSource();
 					final /*@NonInvalid*/ boolean oclIsUndefined = source == null;
 					final /*@NonInvalid*/ Boolean not;
 					if (!oclIsUndefined) {
@@ -319,7 +426,7 @@ public class RelationshipImpl extends MinimalEObjectImpl.Container implements Re
 					if (not == ValueUtil.FALSE_VALUE) {
 						result = ValueUtil.FALSE_VALUE;
 					} else {
-						final /*@NonInvalid*/ Entity target = this.getTarget();
+						final /*@NonInvalid*/ Attribute target = this.getTarget();
 						final /*@NonInvalid*/ boolean oclIsUndefined_0 = target == null;
 						final /*@NonInvalid*/ Boolean not_0;
 						if (!oclIsUndefined_0) {
@@ -349,9 +456,9 @@ public class RelationshipImpl extends MinimalEObjectImpl.Container implements Re
 						.evaluate(executor, TypeId.BOOLEAN, constraintName, this, (Object) null, diagnostics, context,
 								(Object) null, severity_0, CAUGHT_result, ErdMetamodelTables.INT_0)
 						.booleanValue();
-				local_0 = logDiagnostic;
+				IF_le = logDiagnostic;
 			}
-			return local_0;
+			return IF_le;
 		} catch (Throwable e) {
 			return ValueUtil.validationFailedDiagnostic(constraintName, this, diagnostics, context, e);
 		}
@@ -381,14 +488,14 @@ public class RelationshipImpl extends MinimalEObjectImpl.Container implements Re
 			 *         constraintName.logDiagnostic(self, null, diagnostics, context, null, severity, result, 0)
 			 *     endif
 			 */
-			final /*@NonInvalid*/ Executor executor = PivotUtil.getExecutor(this, context);
+			final /*@NonInvalid*/ Executor executor = PivotUtil.getExecutor(this);
 			final /*@NonInvalid*/ IntegerValue severity_0 = CGStringGetSeverityOperation.INSTANCE.evaluate(executor,
 					ErdMetamodelPackage.Literals.RELATIONSHIP___RELATIONSHIP_NAME_NOT_EMPTY__DIAGNOSTICCHAIN_MAP);
 			final /*@NonInvalid*/ boolean le = OclComparableLessThanEqualOperation.INSTANCE
 					.evaluate(executor, severity_0, ErdMetamodelTables.INT_0).booleanValue();
-			/*@NonInvalid*/ boolean local_0;
+			/*@NonInvalid*/ boolean IF_le;
 			if (le) {
-				local_0 = true;
+				IF_le = true;
 			} else {
 				/*@Caught*/ Object CAUGHT_result;
 				try {
@@ -442,9 +549,9 @@ public class RelationshipImpl extends MinimalEObjectImpl.Container implements Re
 						.evaluate(executor, TypeId.BOOLEAN, constraintName, this, (Object) null, diagnostics, context,
 								(Object) null, severity_0, CAUGHT_result, ErdMetamodelTables.INT_0)
 						.booleanValue();
-				local_0 = logDiagnostic;
+				IF_le = logDiagnostic;
 			}
-			return local_0;
+			return IF_le;
 		} catch (Throwable e) {
 			return ValueUtil.validationFailedDiagnostic(constraintName, this, diagnostics, context, e);
 		}
@@ -464,10 +571,18 @@ public class RelationshipImpl extends MinimalEObjectImpl.Container implements Re
 			if (resolve)
 				return getTarget();
 			return basicGetTarget();
+		case ErdMetamodelPackage.RELATIONSHIP__TARGET_TABLE:
+			if (resolve)
+				return getTargetTable();
+			return basicGetTargetTable();
 		case ErdMetamodelPackage.RELATIONSHIP__SOURCE:
 			if (resolve)
 				return getSource();
 			return basicGetSource();
+		case ErdMetamodelPackage.RELATIONSHIP__SOURCE_TABLE:
+			if (resolve)
+				return getSourceTable();
+			return basicGetSourceTable();
 		case ErdMetamodelPackage.RELATIONSHIP__TYPE:
 			return getType();
 		}
@@ -486,10 +601,16 @@ public class RelationshipImpl extends MinimalEObjectImpl.Container implements Re
 			setName((String) newValue);
 			return;
 		case ErdMetamodelPackage.RELATIONSHIP__TARGET:
-			setTarget((Entity) newValue);
+			setTarget((Attribute) newValue);
+			return;
+		case ErdMetamodelPackage.RELATIONSHIP__TARGET_TABLE:
+			setTargetTable((Entity) newValue);
 			return;
 		case ErdMetamodelPackage.RELATIONSHIP__SOURCE:
-			setSource((Entity) newValue);
+			setSource((Attribute) newValue);
+			return;
+		case ErdMetamodelPackage.RELATIONSHIP__SOURCE_TABLE:
+			setSourceTable((Entity) newValue);
 			return;
 		case ErdMetamodelPackage.RELATIONSHIP__TYPE:
 			setType((RelationshipType) newValue);
@@ -510,10 +631,16 @@ public class RelationshipImpl extends MinimalEObjectImpl.Container implements Re
 			setName(NAME_EDEFAULT);
 			return;
 		case ErdMetamodelPackage.RELATIONSHIP__TARGET:
-			setTarget((Entity) null);
+			setTarget((Attribute) null);
+			return;
+		case ErdMetamodelPackage.RELATIONSHIP__TARGET_TABLE:
+			setTargetTable((Entity) null);
 			return;
 		case ErdMetamodelPackage.RELATIONSHIP__SOURCE:
-			setSource((Entity) null);
+			setSource((Attribute) null);
+			return;
+		case ErdMetamodelPackage.RELATIONSHIP__SOURCE_TABLE:
+			setSourceTable((Entity) null);
 			return;
 		case ErdMetamodelPackage.RELATIONSHIP__TYPE:
 			setType(TYPE_EDEFAULT);
@@ -534,8 +661,12 @@ public class RelationshipImpl extends MinimalEObjectImpl.Container implements Re
 			return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 		case ErdMetamodelPackage.RELATIONSHIP__TARGET:
 			return target != null;
+		case ErdMetamodelPackage.RELATIONSHIP__TARGET_TABLE:
+			return targetTable != null;
 		case ErdMetamodelPackage.RELATIONSHIP__SOURCE:
 			return source != null;
+		case ErdMetamodelPackage.RELATIONSHIP__SOURCE_TABLE:
+			return sourceTable != null;
 		case ErdMetamodelPackage.RELATIONSHIP__TYPE:
 			return type != TYPE_EDEFAULT;
 		}

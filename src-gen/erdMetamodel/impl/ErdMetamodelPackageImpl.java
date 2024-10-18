@@ -3,9 +3,8 @@
 package erdMetamodel.impl;
 
 import erdMetamodel.Attribute;
-import erdMetamodel.ComplexEntity;
 import erdMetamodel.CompositeAttribute;
-import erdMetamodel.Constraint;
+import erdMetamodel.ConstraintType;
 import erdMetamodel.DataTypes;
 import erdMetamodel.Entity;
 import erdMetamodel.ErdMetamodelFactory;
@@ -61,13 +60,6 @@ public class ErdMetamodelPackageImpl extends EPackageImpl implements ErdMetamode
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass complexEntityEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	private EClass attributeEClass = null;
 
 	/**
@@ -89,13 +81,6 @@ public class ErdMetamodelPackageImpl extends EPackageImpl implements ErdMetamode
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass constraintEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	private EEnum dataTypesEEnum = null;
 
 	/**
@@ -104,6 +89,13 @@ public class ErdMetamodelPackageImpl extends EPackageImpl implements ErdMetamode
 	 * @generated
 	 */
 	private EEnum relationshipTypeEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum constraintTypeEEnum = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -253,16 +245,6 @@ public class ErdMetamodelPackageImpl extends EPackageImpl implements ErdMetamode
 	 * @generated
 	 */
 	@Override
-	public EReference getEntity_ForeignKeys() {
-		return (EReference) entityEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EOperation getEntity__UniqueEntityName__DiagnosticChain_Map() {
 		return entityEClass.getEOperations().get(0);
 	}
@@ -323,36 +305,6 @@ public class ErdMetamodelPackageImpl extends EPackageImpl implements ErdMetamode
 	 * @generated
 	 */
 	@Override
-	public EClass getComplexEntity() {
-		return complexEntityEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EReference getComplexEntity_AggregatedEntities() {
-		return (EReference) complexEntityEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EOperation getComplexEntity__AggregatedEntitiesExist__DiagnosticChain_Map() {
-		return complexEntityEClass.getEOperations().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EClass getAttribute() {
 		return attributeEClass;
 	}
@@ -405,6 +357,16 @@ public class ErdMetamodelPackageImpl extends EPackageImpl implements ErdMetamode
 	@Override
 	public EAttribute getAttribute_IsDerived() {
 		return (EAttribute) attributeEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getAttribute_ConstraintType() {
+		return (EAttribute) attributeEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -483,7 +445,7 @@ public class ErdMetamodelPackageImpl extends EPackageImpl implements ErdMetamode
 	 * @generated
 	 */
 	@Override
-	public EReference getRelationship_Source() {
+	public EReference getRelationship_TargetTable() {
 		return (EReference) relationshipEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -493,8 +455,28 @@ public class ErdMetamodelPackageImpl extends EPackageImpl implements ErdMetamode
 	 * @generated
 	 */
 	@Override
+	public EReference getRelationship_Source() {
+		return (EReference) relationshipEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getRelationship_SourceTable() {
+		return (EReference) relationshipEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EAttribute getRelationship_Type() {
-		return (EAttribute) relationshipEClass.getEStructuralFeatures().get(3);
+		return (EAttribute) relationshipEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -523,16 +505,6 @@ public class ErdMetamodelPackageImpl extends EPackageImpl implements ErdMetamode
 	 * @generated
 	 */
 	@Override
-	public EClass getConstraint() {
-		return constraintEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EEnum getDataTypes() {
 		return dataTypesEEnum;
 	}
@@ -545,6 +517,16 @@ public class ErdMetamodelPackageImpl extends EPackageImpl implements ErdMetamode
 	@Override
 	public EEnum getRelationshipType() {
 		return relationshipTypeEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EEnum getConstraintType() {
+		return constraintTypeEEnum;
 	}
 
 	/**
@@ -585,7 +567,6 @@ public class ErdMetamodelPackageImpl extends EPackageImpl implements ErdMetamode
 		entityEClass = createEClass(ENTITY);
 		createEAttribute(entityEClass, ENTITY__NAME);
 		createEReference(entityEClass, ENTITY__ATTRIBUTES);
-		createEReference(entityEClass, ENTITY__FOREIGN_KEYS);
 		createEOperation(entityEClass, ENTITY___UNIQUE_ENTITY_NAME__DIAGNOSTICCHAIN_MAP);
 		createEOperation(entityEClass, ENTITY___ENTITY_HAS_PRIMARY_KEY__DIAGNOSTICCHAIN_MAP);
 		createEOperation(entityEClass, ENTITY___UNIQUE_ATTRIBUTE_NAMES__DIAGNOSTICCHAIN_MAP);
@@ -594,16 +575,13 @@ public class ErdMetamodelPackageImpl extends EPackageImpl implements ErdMetamode
 		createEReference(weakEntityEClass, WEAK_ENTITY__IDENTIFYING_RELATIONSHIP);
 		createEOperation(weakEntityEClass, WEAK_ENTITY___IDENTIFYING_RELATIONSHIP_EXISTS__DIAGNOSTICCHAIN_MAP);
 
-		complexEntityEClass = createEClass(COMPLEX_ENTITY);
-		createEReference(complexEntityEClass, COMPLEX_ENTITY__AGGREGATED_ENTITIES);
-		createEOperation(complexEntityEClass, COMPLEX_ENTITY___AGGREGATED_ENTITIES_EXIST__DIAGNOSTICCHAIN_MAP);
-
 		attributeEClass = createEClass(ATTRIBUTE);
 		createEAttribute(attributeEClass, ATTRIBUTE__NAME);
 		createEAttribute(attributeEClass, ATTRIBUTE__IS_PRIMARY_KEY);
 		createEAttribute(attributeEClass, ATTRIBUTE__DATA_TYPE);
 		createEAttribute(attributeEClass, ATTRIBUTE__IS_COMPOSITE);
 		createEAttribute(attributeEClass, ATTRIBUTE__IS_DERIVED);
+		createEAttribute(attributeEClass, ATTRIBUTE__CONSTRAINT_TYPE);
 		createEOperation(attributeEClass, ATTRIBUTE___VALID_DATA_TYPE__DIAGNOSTICCHAIN_MAP);
 
 		compositeAttributeEClass = createEClass(COMPOSITE_ATTRIBUTE);
@@ -613,16 +591,17 @@ public class ErdMetamodelPackageImpl extends EPackageImpl implements ErdMetamode
 		relationshipEClass = createEClass(RELATIONSHIP);
 		createEAttribute(relationshipEClass, RELATIONSHIP__NAME);
 		createEReference(relationshipEClass, RELATIONSHIP__TARGET);
+		createEReference(relationshipEClass, RELATIONSHIP__TARGET_TABLE);
 		createEReference(relationshipEClass, RELATIONSHIP__SOURCE);
+		createEReference(relationshipEClass, RELATIONSHIP__SOURCE_TABLE);
 		createEAttribute(relationshipEClass, RELATIONSHIP__TYPE);
 		createEOperation(relationshipEClass, RELATIONSHIP___VALID_SOURCE_AND_TARGET__DIAGNOSTICCHAIN_MAP);
 		createEOperation(relationshipEClass, RELATIONSHIP___RELATIONSHIP_NAME_NOT_EMPTY__DIAGNOSTICCHAIN_MAP);
 
-		constraintEClass = createEClass(CONSTRAINT);
-
 		// Create enums
 		dataTypesEEnum = createEEnum(DATA_TYPES);
 		relationshipTypeEEnum = createEEnum(RELATIONSHIP_TYPE);
+		constraintTypeEEnum = createEEnum(CONSTRAINT_TYPE);
 	}
 
 	/**
@@ -655,6 +634,7 @@ public class ErdMetamodelPackageImpl extends EPackageImpl implements ErdMetamode
 
 		// Add supertypes to classes
 		weakEntityEClass.getESuperTypes().add(this.getEntity());
+		compositeAttributeEClass.getESuperTypes().add(this.getAttribute());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(modelEClass, Model.class, "Model", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -672,9 +652,6 @@ public class ErdMetamodelPackageImpl extends EPackageImpl implements ErdMetamode
 				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getEntity_Attributes(), this.getAttribute(), null, "attributes", null, 0, -1, Entity.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
-				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getEntity_ForeignKeys(), this.getAttribute(), null, "foreignKeys", null, 0, -1, Entity.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		EOperation op = initEOperation(getEntity__UniqueEntityName__DiagnosticChain_Map(), ecorePackage.getEBoolean(),
@@ -723,22 +700,6 @@ public class ErdMetamodelPackageImpl extends EPackageImpl implements ErdMetamode
 		g1.getETypeArguments().add(g2);
 		addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		initEClass(complexEntityEClass, ComplexEntity.class, "ComplexEntity", !IS_ABSTRACT, !IS_INTERFACE,
-				IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getComplexEntity_AggregatedEntities(), this.getEntity(), null, "aggregatedEntities", null, 0, -1,
-				ComplexEntity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
-				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		op = initEOperation(getComplexEntity__AggregatedEntitiesExist__DiagnosticChain_Map(),
-				ecorePackage.getEBoolean(), "AggregatedEntitiesExist", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
-		g1 = createEGenericType(ecorePackage.getEMap());
-		g2 = createEGenericType(ecorePackage.getEJavaObject());
-		g1.getETypeArguments().add(g2);
-		g2 = createEGenericType(ecorePackage.getEJavaObject());
-		g1.getETypeArguments().add(g2);
-		addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
-
 		initEClass(attributeEClass, Attribute.class, "Attribute", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getAttribute_Name(), ecorePackage.getEString(), "name", null, 0, 1, Attribute.class,
@@ -752,6 +713,9 @@ public class ErdMetamodelPackageImpl extends EPackageImpl implements ErdMetamode
 				Attribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
 				!IS_DERIVED, IS_ORDERED);
 		initEAttribute(getAttribute_IsDerived(), ecorePackage.getEBoolean(), "isDerived", "false", 1, 1,
+				Attribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+				!IS_DERIVED, IS_ORDERED);
+		initEAttribute(getAttribute_ConstraintType(), this.getConstraintType(), "constraintType", "NONE", 0, 1,
 				Attribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
 				!IS_DERIVED, IS_ORDERED);
 
@@ -785,12 +749,18 @@ public class ErdMetamodelPackageImpl extends EPackageImpl implements ErdMetamode
 				IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getRelationship_Name(), ecorePackage.getEString(), "name", null, 0, 1, Relationship.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getRelationship_Target(), this.getEntity(), null, "target", null, 0, 1, Relationship.class,
+		initEReference(getRelationship_Target(), this.getAttribute(), null, "target", null, 0, 1, Relationship.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getRelationship_Source(), this.getEntity(), null, "source", null, 0, 1, Relationship.class,
+		initEReference(getRelationship_TargetTable(), this.getEntity(), null, "targetTable", null, 0, 1,
+				Relationship.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
+				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getRelationship_Source(), this.getAttribute(), null, "source", null, 0, 1, Relationship.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getRelationship_SourceTable(), this.getEntity(), null, "sourceTable", null, 0, 1,
+				Relationship.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
+				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getRelationship_Type(), this.getRelationshipType(), "type", null, 0, 1, Relationship.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -814,9 +784,6 @@ public class ErdMetamodelPackageImpl extends EPackageImpl implements ErdMetamode
 		g1.getETypeArguments().add(g2);
 		addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		initEClass(constraintEClass, Constraint.class, "Constraint", !IS_ABSTRACT, !IS_INTERFACE,
-				IS_GENERATED_INSTANCE_CLASS);
-
 		// Initialize enums and add enum literals
 		initEEnum(dataTypesEEnum, DataTypes.class, "DataTypes");
 		addEEnumLiteral(dataTypesEEnum, DataTypes.INT);
@@ -825,8 +792,13 @@ public class ErdMetamodelPackageImpl extends EPackageImpl implements ErdMetamode
 
 		initEEnum(relationshipTypeEEnum, RelationshipType.class, "RelationshipType");
 		addEEnumLiteral(relationshipTypeEEnum, RelationshipType.ONE_TO_ONE);
-		addEEnumLiteral(relationshipTypeEEnum, RelationshipType.ONE_TO_MANE);
-		addEEnumLiteral(relationshipTypeEEnum, RelationshipType.MANY_TO_MANE);
+		addEEnumLiteral(relationshipTypeEEnum, RelationshipType.ONE_TO_MANY);
+		addEEnumLiteral(relationshipTypeEEnum, RelationshipType.MANY_TO_MANY);
+
+		initEEnum(constraintTypeEEnum, ConstraintType.class, "ConstraintType");
+		addEEnumLiteral(constraintTypeEEnum, ConstraintType.NONE);
+		addEEnumLiteral(constraintTypeEEnum, ConstraintType.UNIQUE);
+		addEEnumLiteral(constraintTypeEEnum, ConstraintType.CHECK);
 
 		// Create resource
 		createResource(eNS_URI);
@@ -849,7 +821,6 @@ public class ErdMetamodelPackageImpl extends EPackageImpl implements ErdMetamode
 		addAnnotation(this, source, new String[] {});
 		addAnnotation(entityEClass, source, new String[] { "constraints", "UniqueAttributeNames" });
 		addAnnotation(weakEntityEClass, source, new String[] { "constraints", "IdentifyingRelationshipExists" });
-		addAnnotation(complexEntityEClass, source, new String[] { "constraints", "AggregatedEntitiesExist" });
 		addAnnotation(attributeEClass, source, new String[] { "constraints", "ValidDataType" });
 		addAnnotation(compositeAttributeEClass, source, new String[] { "constraints", "SubAttributesExist" });
 		addAnnotation(relationshipEClass, source, new String[] { "constraints", "RelationshipNameNotEmpty" });
@@ -871,8 +842,6 @@ public class ErdMetamodelPackageImpl extends EPackageImpl implements ErdMetamode
 				new String[] { "body", "\n            self.attributes->isUnique(a | a.name)" });
 		addAnnotation(getWeakEntity__IdentifyingRelationshipExists__DiagnosticChain_Map(), source,
 				new String[] { "body", "\n            not self.identifyingRelationship.oclIsUndefined()" });
-		addAnnotation(getComplexEntity__AggregatedEntitiesExist__DiagnosticChain_Map(), source,
-				new String[] { "body", "\n            not self.aggregatedEntities->isEmpty()" });
 		addAnnotation(getAttribute__ValidDataType__DiagnosticChain_Map(), source, new String[] { "body",
 				"\n            self.dataType = DataTypes::INT or self.dataType = DataTypes::VARCHAR or self.dataType = DataTypes::DATE" });
 		addAnnotation(getCompositeAttribute__SubAttributesExist__DiagnosticChain_Map(), source,

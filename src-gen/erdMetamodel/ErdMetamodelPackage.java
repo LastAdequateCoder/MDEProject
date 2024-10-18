@@ -143,22 +143,13 @@ public interface ErdMetamodelPackage extends EPackage {
 	int ENTITY__ATTRIBUTES = 1;
 
 	/**
-	 * The feature id for the '<em><b>Foreign Keys</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ENTITY__FOREIGN_KEYS = 2;
-
-	/**
 	 * The number of structural features of the '<em>Entity</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ENTITY_FEATURE_COUNT = 3;
+	int ENTITY_FEATURE_COUNT = 2;
 
 	/**
 	 * The operation id for the '<em>Unique Entity Name</em>' operation.
@@ -225,15 +216,6 @@ public interface ErdMetamodelPackage extends EPackage {
 	int WEAK_ENTITY__ATTRIBUTES = ENTITY__ATTRIBUTES;
 
 	/**
-	 * The feature id for the '<em><b>Foreign Keys</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int WEAK_ENTITY__FOREIGN_KEYS = ENTITY__FOREIGN_KEYS;
-
-	/**
 	 * The feature id for the '<em><b>Identifying Relationship</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -297,52 +279,6 @@ public interface ErdMetamodelPackage extends EPackage {
 	int WEAK_ENTITY_OPERATION_COUNT = ENTITY_OPERATION_COUNT + 1;
 
 	/**
-	 * The meta object id for the '{@link erdMetamodel.impl.ComplexEntityImpl <em>Complex Entity</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see erdMetamodel.impl.ComplexEntityImpl
-	 * @see erdMetamodel.impl.ErdMetamodelPackageImpl#getComplexEntity()
-	 * @generated
-	 */
-	int COMPLEX_ENTITY = 3;
-
-	/**
-	 * The feature id for the '<em><b>Aggregated Entities</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COMPLEX_ENTITY__AGGREGATED_ENTITIES = 0;
-
-	/**
-	 * The number of structural features of the '<em>Complex Entity</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COMPLEX_ENTITY_FEATURE_COUNT = 1;
-
-	/**
-	 * The operation id for the '<em>Aggregated Entities Exist</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COMPLEX_ENTITY___AGGREGATED_ENTITIES_EXIST__DIAGNOSTICCHAIN_MAP = 0;
-
-	/**
-	 * The number of operations of the '<em>Complex Entity</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COMPLEX_ENTITY_OPERATION_COUNT = 1;
-
-	/**
 	 * The meta object id for the '{@link erdMetamodel.impl.AttributeImpl <em>Attribute</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -350,7 +286,7 @@ public interface ErdMetamodelPackage extends EPackage {
 	 * @see erdMetamodel.impl.ErdMetamodelPackageImpl#getAttribute()
 	 * @generated
 	 */
-	int ATTRIBUTE = 4;
+	int ATTRIBUTE = 3;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -398,13 +334,22 @@ public interface ErdMetamodelPackage extends EPackage {
 	int ATTRIBUTE__IS_DERIVED = 4;
 
 	/**
+	 * The feature id for the '<em><b>Constraint Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ATTRIBUTE__CONSTRAINT_TYPE = 5;
+
+	/**
 	 * The number of structural features of the '<em>Attribute</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ATTRIBUTE_FEATURE_COUNT = 5;
+	int ATTRIBUTE_FEATURE_COUNT = 6;
 
 	/**
 	 * The operation id for the '<em>Valid Data Type</em>' operation.
@@ -432,7 +377,61 @@ public interface ErdMetamodelPackage extends EPackage {
 	 * @see erdMetamodel.impl.ErdMetamodelPackageImpl#getCompositeAttribute()
 	 * @generated
 	 */
-	int COMPOSITE_ATTRIBUTE = 5;
+	int COMPOSITE_ATTRIBUTE = 4;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPOSITE_ATTRIBUTE__NAME = ATTRIBUTE__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Is Primary Key</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPOSITE_ATTRIBUTE__IS_PRIMARY_KEY = ATTRIBUTE__IS_PRIMARY_KEY;
+
+	/**
+	 * The feature id for the '<em><b>Data Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPOSITE_ATTRIBUTE__DATA_TYPE = ATTRIBUTE__DATA_TYPE;
+
+	/**
+	 * The feature id for the '<em><b>Is Composite</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPOSITE_ATTRIBUTE__IS_COMPOSITE = ATTRIBUTE__IS_COMPOSITE;
+
+	/**
+	 * The feature id for the '<em><b>Is Derived</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPOSITE_ATTRIBUTE__IS_DERIVED = ATTRIBUTE__IS_DERIVED;
+
+	/**
+	 * The feature id for the '<em><b>Constraint Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPOSITE_ATTRIBUTE__CONSTRAINT_TYPE = ATTRIBUTE__CONSTRAINT_TYPE;
 
 	/**
 	 * The feature id for the '<em><b>Sub Attributes</b></em>' reference list.
@@ -441,7 +440,7 @@ public interface ErdMetamodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPOSITE_ATTRIBUTE__SUB_ATTRIBUTES = 0;
+	int COMPOSITE_ATTRIBUTE__SUB_ATTRIBUTES = ATTRIBUTE_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Composite Attribute</em>' class.
@@ -450,7 +449,16 @@ public interface ErdMetamodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPOSITE_ATTRIBUTE_FEATURE_COUNT = 1;
+	int COMPOSITE_ATTRIBUTE_FEATURE_COUNT = ATTRIBUTE_FEATURE_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>Valid Data Type</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPOSITE_ATTRIBUTE___VALID_DATA_TYPE__DIAGNOSTICCHAIN_MAP = ATTRIBUTE___VALID_DATA_TYPE__DIAGNOSTICCHAIN_MAP;
 
 	/**
 	 * The operation id for the '<em>Sub Attributes Exist</em>' operation.
@@ -459,7 +467,7 @@ public interface ErdMetamodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPOSITE_ATTRIBUTE___SUB_ATTRIBUTES_EXIST__DIAGNOSTICCHAIN_MAP = 0;
+	int COMPOSITE_ATTRIBUTE___SUB_ATTRIBUTES_EXIST__DIAGNOSTICCHAIN_MAP = ATTRIBUTE_OPERATION_COUNT + 0;
 
 	/**
 	 * The number of operations of the '<em>Composite Attribute</em>' class.
@@ -468,7 +476,7 @@ public interface ErdMetamodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPOSITE_ATTRIBUTE_OPERATION_COUNT = 1;
+	int COMPOSITE_ATTRIBUTE_OPERATION_COUNT = ATTRIBUTE_OPERATION_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link erdMetamodel.impl.RelationshipImpl <em>Relationship</em>}' class.
@@ -478,7 +486,7 @@ public interface ErdMetamodelPackage extends EPackage {
 	 * @see erdMetamodel.impl.ErdMetamodelPackageImpl#getRelationship()
 	 * @generated
 	 */
-	int RELATIONSHIP = 6;
+	int RELATIONSHIP = 5;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -499,13 +507,31 @@ public interface ErdMetamodelPackage extends EPackage {
 	int RELATIONSHIP__TARGET = 1;
 
 	/**
+	 * The feature id for the '<em><b>Target Table</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RELATIONSHIP__TARGET_TABLE = 2;
+
+	/**
 	 * The feature id for the '<em><b>Source</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RELATIONSHIP__SOURCE = 2;
+	int RELATIONSHIP__SOURCE = 3;
+
+	/**
+	 * The feature id for the '<em><b>Source Table</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RELATIONSHIP__SOURCE_TABLE = 4;
 
 	/**
 	 * The feature id for the '<em><b>Type</b></em>' attribute.
@@ -514,7 +540,7 @@ public interface ErdMetamodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RELATIONSHIP__TYPE = 3;
+	int RELATIONSHIP__TYPE = 5;
 
 	/**
 	 * The number of structural features of the '<em>Relationship</em>' class.
@@ -523,7 +549,7 @@ public interface ErdMetamodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RELATIONSHIP_FEATURE_COUNT = 4;
+	int RELATIONSHIP_FEATURE_COUNT = 6;
 
 	/**
 	 * The operation id for the '<em>Valid Source And Target</em>' operation.
@@ -553,34 +579,6 @@ public interface ErdMetamodelPackage extends EPackage {
 	int RELATIONSHIP_OPERATION_COUNT = 2;
 
 	/**
-	 * The meta object id for the '{@link erdMetamodel.impl.ConstraintImpl <em>Constraint</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see erdMetamodel.impl.ConstraintImpl
-	 * @see erdMetamodel.impl.ErdMetamodelPackageImpl#getConstraint()
-	 * @generated
-	 */
-	int CONSTRAINT = 7;
-
-	/**
-	 * The number of structural features of the '<em>Constraint</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONSTRAINT_FEATURE_COUNT = 0;
-
-	/**
-	 * The number of operations of the '<em>Constraint</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONSTRAINT_OPERATION_COUNT = 0;
-
-	/**
 	 * The meta object id for the '{@link erdMetamodel.DataTypes <em>Data Types</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -588,7 +586,7 @@ public interface ErdMetamodelPackage extends EPackage {
 	 * @see erdMetamodel.impl.ErdMetamodelPackageImpl#getDataTypes()
 	 * @generated
 	 */
-	int DATA_TYPES = 8;
+	int DATA_TYPES = 6;
 
 	/**
 	 * The meta object id for the '{@link erdMetamodel.RelationshipType <em>Relationship Type</em>}' enum.
@@ -598,7 +596,17 @@ public interface ErdMetamodelPackage extends EPackage {
 	 * @see erdMetamodel.impl.ErdMetamodelPackageImpl#getRelationshipType()
 	 * @generated
 	 */
-	int RELATIONSHIP_TYPE = 9;
+	int RELATIONSHIP_TYPE = 7;
+
+	/**
+	 * The meta object id for the '{@link erdMetamodel.ConstraintType <em>Constraint Type</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see erdMetamodel.ConstraintType
+	 * @see erdMetamodel.impl.ErdMetamodelPackageImpl#getConstraintType()
+	 * @generated
+	 */
+	int CONSTRAINT_TYPE = 8;
 
 	/**
 	 * Returns the meta object for class '{@link erdMetamodel.Model <em>Model</em>}'.
@@ -676,17 +684,6 @@ public interface ErdMetamodelPackage extends EPackage {
 	EReference getEntity_Attributes();
 
 	/**
-	 * Returns the meta object for the reference list '{@link erdMetamodel.Entity#getForeignKeys <em>Foreign Keys</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Foreign Keys</em>'.
-	 * @see erdMetamodel.Entity#getForeignKeys()
-	 * @see #getEntity()
-	 * @generated
-	 */
-	EReference getEntity_ForeignKeys();
-
-	/**
 	 * Returns the meta object for the '{@link erdMetamodel.Entity#UniqueEntityName(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>Unique Entity Name</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -746,37 +743,6 @@ public interface ErdMetamodelPackage extends EPackage {
 	 * @generated
 	 */
 	EOperation getWeakEntity__IdentifyingRelationshipExists__DiagnosticChain_Map();
-
-	/**
-	 * Returns the meta object for class '{@link erdMetamodel.ComplexEntity <em>Complex Entity</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Complex Entity</em>'.
-	 * @see erdMetamodel.ComplexEntity
-	 * @generated
-	 */
-	EClass getComplexEntity();
-
-	/**
-	 * Returns the meta object for the reference list '{@link erdMetamodel.ComplexEntity#getAggregatedEntities <em>Aggregated Entities</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Aggregated Entities</em>'.
-	 * @see erdMetamodel.ComplexEntity#getAggregatedEntities()
-	 * @see #getComplexEntity()
-	 * @generated
-	 */
-	EReference getComplexEntity_AggregatedEntities();
-
-	/**
-	 * Returns the meta object for the '{@link erdMetamodel.ComplexEntity#AggregatedEntitiesExist(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>Aggregated Entities Exist</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Aggregated Entities Exist</em>' operation.
-	 * @see erdMetamodel.ComplexEntity#AggregatedEntitiesExist(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
-	 * @generated
-	 */
-	EOperation getComplexEntity__AggregatedEntitiesExist__DiagnosticChain_Map();
 
 	/**
 	 * Returns the meta object for class '{@link erdMetamodel.Attribute <em>Attribute</em>}'.
@@ -842,6 +808,17 @@ public interface ErdMetamodelPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getAttribute_IsDerived();
+
+	/**
+	 * Returns the meta object for the attribute '{@link erdMetamodel.Attribute#getConstraintType <em>Constraint Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Constraint Type</em>'.
+	 * @see erdMetamodel.Attribute#getConstraintType()
+	 * @see #getAttribute()
+	 * @generated
+	 */
+	EAttribute getAttribute_ConstraintType();
 
 	/**
 	 * Returns the meta object for the '{@link erdMetamodel.Attribute#ValidDataType(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>Valid Data Type</em>}' operation.
@@ -917,6 +894,17 @@ public interface ErdMetamodelPackage extends EPackage {
 	EReference getRelationship_Target();
 
 	/**
+	 * Returns the meta object for the reference '{@link erdMetamodel.Relationship#getTargetTable <em>Target Table</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Target Table</em>'.
+	 * @see erdMetamodel.Relationship#getTargetTable()
+	 * @see #getRelationship()
+	 * @generated
+	 */
+	EReference getRelationship_TargetTable();
+
+	/**
 	 * Returns the meta object for the reference '{@link erdMetamodel.Relationship#getSource <em>Source</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -926,6 +914,17 @@ public interface ErdMetamodelPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getRelationship_Source();
+
+	/**
+	 * Returns the meta object for the reference '{@link erdMetamodel.Relationship#getSourceTable <em>Source Table</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Source Table</em>'.
+	 * @see erdMetamodel.Relationship#getSourceTable()
+	 * @see #getRelationship()
+	 * @generated
+	 */
+	EReference getRelationship_SourceTable();
 
 	/**
 	 * Returns the meta object for the attribute '{@link erdMetamodel.Relationship#getType <em>Type</em>}'.
@@ -959,16 +958,6 @@ public interface ErdMetamodelPackage extends EPackage {
 	EOperation getRelationship__RelationshipNameNotEmpty__DiagnosticChain_Map();
 
 	/**
-	 * Returns the meta object for class '{@link erdMetamodel.Constraint <em>Constraint</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Constraint</em>'.
-	 * @see erdMetamodel.Constraint
-	 * @generated
-	 */
-	EClass getConstraint();
-
-	/**
 	 * Returns the meta object for enum '{@link erdMetamodel.DataTypes <em>Data Types</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -987,6 +976,16 @@ public interface ErdMetamodelPackage extends EPackage {
 	 * @generated
 	 */
 	EEnum getRelationshipType();
+
+	/**
+	 * Returns the meta object for enum '{@link erdMetamodel.ConstraintType <em>Constraint Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Constraint Type</em>'.
+	 * @see erdMetamodel.ConstraintType
+	 * @generated
+	 */
+	EEnum getConstraintType();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -1072,14 +1071,6 @@ public interface ErdMetamodelPackage extends EPackage {
 		EReference ENTITY__ATTRIBUTES = eINSTANCE.getEntity_Attributes();
 
 		/**
-		 * The meta object literal for the '<em><b>Foreign Keys</b></em>' reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference ENTITY__FOREIGN_KEYS = eINSTANCE.getEntity_ForeignKeys();
-
-		/**
 		 * The meta object literal for the '<em><b>Unique Entity Name</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1134,33 +1125,6 @@ public interface ErdMetamodelPackage extends EPackage {
 				.getWeakEntity__IdentifyingRelationshipExists__DiagnosticChain_Map();
 
 		/**
-		 * The meta object literal for the '{@link erdMetamodel.impl.ComplexEntityImpl <em>Complex Entity</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see erdMetamodel.impl.ComplexEntityImpl
-		 * @see erdMetamodel.impl.ErdMetamodelPackageImpl#getComplexEntity()
-		 * @generated
-		 */
-		EClass COMPLEX_ENTITY = eINSTANCE.getComplexEntity();
-
-		/**
-		 * The meta object literal for the '<em><b>Aggregated Entities</b></em>' reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference COMPLEX_ENTITY__AGGREGATED_ENTITIES = eINSTANCE.getComplexEntity_AggregatedEntities();
-
-		/**
-		 * The meta object literal for the '<em><b>Aggregated Entities Exist</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation COMPLEX_ENTITY___AGGREGATED_ENTITIES_EXIST__DIAGNOSTICCHAIN_MAP = eINSTANCE
-				.getComplexEntity__AggregatedEntitiesExist__DiagnosticChain_Map();
-
-		/**
 		 * The meta object literal for the '{@link erdMetamodel.impl.AttributeImpl <em>Attribute</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1209,6 +1173,14 @@ public interface ErdMetamodelPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute ATTRIBUTE__IS_DERIVED = eINSTANCE.getAttribute_IsDerived();
+
+		/**
+		 * The meta object literal for the '<em><b>Constraint Type</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ATTRIBUTE__CONSTRAINT_TYPE = eINSTANCE.getAttribute_ConstraintType();
 
 		/**
 		 * The meta object literal for the '<em><b>Valid Data Type</b></em>' operation.
@@ -1273,12 +1245,28 @@ public interface ErdMetamodelPackage extends EPackage {
 		EReference RELATIONSHIP__TARGET = eINSTANCE.getRelationship_Target();
 
 		/**
+		 * The meta object literal for the '<em><b>Target Table</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference RELATIONSHIP__TARGET_TABLE = eINSTANCE.getRelationship_TargetTable();
+
+		/**
 		 * The meta object literal for the '<em><b>Source</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EReference RELATIONSHIP__SOURCE = eINSTANCE.getRelationship_Source();
+
+		/**
+		 * The meta object literal for the '<em><b>Source Table</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference RELATIONSHIP__SOURCE_TABLE = eINSTANCE.getRelationship_SourceTable();
 
 		/**
 		 * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
@@ -1307,16 +1295,6 @@ public interface ErdMetamodelPackage extends EPackage {
 				.getRelationship__RelationshipNameNotEmpty__DiagnosticChain_Map();
 
 		/**
-		 * The meta object literal for the '{@link erdMetamodel.impl.ConstraintImpl <em>Constraint</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see erdMetamodel.impl.ConstraintImpl
-		 * @see erdMetamodel.impl.ErdMetamodelPackageImpl#getConstraint()
-		 * @generated
-		 */
-		EClass CONSTRAINT = eINSTANCE.getConstraint();
-
-		/**
 		 * The meta object literal for the '{@link erdMetamodel.DataTypes <em>Data Types</em>}' enum.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1335,6 +1313,16 @@ public interface ErdMetamodelPackage extends EPackage {
 		 * @generated
 		 */
 		EEnum RELATIONSHIP_TYPE = eINSTANCE.getRelationshipType();
+
+		/**
+		 * The meta object literal for the '{@link erdMetamodel.ConstraintType <em>Constraint Type</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see erdMetamodel.ConstraintType
+		 * @see erdMetamodel.impl.ErdMetamodelPackageImpl#getConstraintType()
+		 * @generated
+		 */
+		EEnum CONSTRAINT_TYPE = eINSTANCE.getConstraintType();
 
 	}
 

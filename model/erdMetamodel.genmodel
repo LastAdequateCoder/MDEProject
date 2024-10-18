@@ -16,8 +16,12 @@
     </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="erdMetamodel.ecore#//RelationshipType">
       <genEnumLiterals ecoreEnumLiteral="erdMetamodel.ecore#//RelationshipType/OneToOne"/>
-      <genEnumLiterals ecoreEnumLiteral="erdMetamodel.ecore#//RelationshipType/OneToMane"/>
-      <genEnumLiterals ecoreEnumLiteral="erdMetamodel.ecore#//RelationshipType/ManyToMane"/>
+      <genEnumLiterals ecoreEnumLiteral="erdMetamodel.ecore#//RelationshipType/OneToMany"/>
+      <genEnumLiterals ecoreEnumLiteral="erdMetamodel.ecore#//RelationshipType/ManyToMany"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="erdMetamodel.ecore#//ConstraintType">
+      <genEnumLiterals ecoreEnumLiteral="erdMetamodel.ecore#//ConstraintType/UNIQUE"/>
+      <genEnumLiterals ecoreEnumLiteral="erdMetamodel.ecore#//ConstraintType/CHECK"/>
     </genEnums>
     <genClasses ecoreClass="erdMetamodel.ecore#//Model">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute erdMetamodel.ecore#//Model/name"/>
@@ -27,13 +31,9 @@
     <genClasses ecoreClass="erdMetamodel.ecore#//Entity">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute erdMetamodel.ecore#//Entity/name"/>
       <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference erdMetamodel.ecore#//Entity/attributes"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference erdMetamodel.ecore#//Entity/foreignKeys"/>
     </genClasses>
     <genClasses ecoreClass="erdMetamodel.ecore#//WeakEntity">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference erdMetamodel.ecore#//WeakEntity/identifyingRelationship"/>
-    </genClasses>
-    <genClasses ecoreClass="erdMetamodel.ecore#//ComplexEntity">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference erdMetamodel.ecore#//ComplexEntity/aggregatedEntities"/>
     </genClasses>
     <genClasses ecoreClass="erdMetamodel.ecore#//Attribute">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute erdMetamodel.ecore#//Attribute/name"/>
@@ -41,6 +41,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute erdMetamodel.ecore#//Attribute/dataType"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute erdMetamodel.ecore#//Attribute/isComposite"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute erdMetamodel.ecore#//Attribute/isDerived"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute erdMetamodel.ecore#//Attribute/constraintType"/>
     </genClasses>
     <genClasses ecoreClass="erdMetamodel.ecore#//CompositeAttribute">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference erdMetamodel.ecore#//CompositeAttribute/subAttributes"/>
@@ -48,9 +49,10 @@
     <genClasses ecoreClass="erdMetamodel.ecore#//Relationship">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute erdMetamodel.ecore#//Relationship/name"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference erdMetamodel.ecore#//Relationship/target"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference erdMetamodel.ecore#//Relationship/targetTable"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference erdMetamodel.ecore#//Relationship/source"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference erdMetamodel.ecore#//Relationship/sourceTable"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute erdMetamodel.ecore#//Relationship/type"/>
     </genClasses>
-    <genClasses ecoreClass="erdMetamodel.ecore#//Constraint"/>
   </genPackages>
 </genmodel:GenModel>

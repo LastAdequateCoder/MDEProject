@@ -63,16 +63,12 @@ public class ErdMetamodelFactoryImpl extends EFactoryImpl implements ErdMetamode
 			return createEntity();
 		case ErdMetamodelPackage.WEAK_ENTITY:
 			return createWeakEntity();
-		case ErdMetamodelPackage.COMPLEX_ENTITY:
-			return createComplexEntity();
 		case ErdMetamodelPackage.ATTRIBUTE:
 			return createAttribute();
 		case ErdMetamodelPackage.COMPOSITE_ATTRIBUTE:
 			return createCompositeAttribute();
 		case ErdMetamodelPackage.RELATIONSHIP:
 			return createRelationship();
-		case ErdMetamodelPackage.CONSTRAINT:
-			return createConstraint();
 		default:
 			throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -90,6 +86,8 @@ public class ErdMetamodelFactoryImpl extends EFactoryImpl implements ErdMetamode
 			return createDataTypesFromString(eDataType, initialValue);
 		case ErdMetamodelPackage.RELATIONSHIP_TYPE:
 			return createRelationshipTypeFromString(eDataType, initialValue);
+		case ErdMetamodelPackage.CONSTRAINT_TYPE:
+			return createConstraintTypeFromString(eDataType, initialValue);
 		default:
 			throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -107,6 +105,8 @@ public class ErdMetamodelFactoryImpl extends EFactoryImpl implements ErdMetamode
 			return convertDataTypesToString(eDataType, instanceValue);
 		case ErdMetamodelPackage.RELATIONSHIP_TYPE:
 			return convertRelationshipTypeToString(eDataType, instanceValue);
+		case ErdMetamodelPackage.CONSTRAINT_TYPE:
+			return convertConstraintTypeToString(eDataType, instanceValue);
 		default:
 			throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -151,17 +151,6 @@ public class ErdMetamodelFactoryImpl extends EFactoryImpl implements ErdMetamode
 	 * @generated
 	 */
 	@Override
-	public ComplexEntity createComplexEntity() {
-		ComplexEntityImpl complexEntity = new ComplexEntityImpl();
-		return complexEntity;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public Attribute createAttribute() {
 		AttributeImpl attribute = new AttributeImpl();
 		return attribute;
@@ -187,17 +176,6 @@ public class ErdMetamodelFactoryImpl extends EFactoryImpl implements ErdMetamode
 	public Relationship createRelationship() {
 		RelationshipImpl relationship = new RelationshipImpl();
 		return relationship;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Constraint createConstraint() {
-		ConstraintImpl constraint = new ConstraintImpl();
-		return constraint;
 	}
 
 	/**
@@ -241,6 +219,28 @@ public class ErdMetamodelFactoryImpl extends EFactoryImpl implements ErdMetamode
 	 * @generated
 	 */
 	public String convertRelationshipTypeToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ConstraintType createConstraintTypeFromString(EDataType eDataType, String initialValue) {
+		ConstraintType result = ConstraintType.get(initialValue);
+		if (result == null)
+			throw new IllegalArgumentException(
+					"The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertConstraintTypeToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 

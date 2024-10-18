@@ -89,13 +89,6 @@ public class ErdMetamodelSwitch<T> extends Switch<T> {
 				result = defaultCase(theEObject);
 			return result;
 		}
-		case ErdMetamodelPackage.COMPLEX_ENTITY: {
-			ComplexEntity complexEntity = (ComplexEntity) theEObject;
-			T result = caseComplexEntity(complexEntity);
-			if (result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
 		case ErdMetamodelPackage.ATTRIBUTE: {
 			Attribute attribute = (Attribute) theEObject;
 			T result = caseAttribute(attribute);
@@ -107,19 +100,14 @@ public class ErdMetamodelSwitch<T> extends Switch<T> {
 			CompositeAttribute compositeAttribute = (CompositeAttribute) theEObject;
 			T result = caseCompositeAttribute(compositeAttribute);
 			if (result == null)
+				result = caseAttribute(compositeAttribute);
+			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
 		}
 		case ErdMetamodelPackage.RELATIONSHIP: {
 			Relationship relationship = (Relationship) theEObject;
 			T result = caseRelationship(relationship);
-			if (result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		case ErdMetamodelPackage.CONSTRAINT: {
-			Constraint constraint = (Constraint) theEObject;
-			T result = caseConstraint(constraint);
 			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
@@ -175,21 +163,6 @@ public class ErdMetamodelSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Complex Entity</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Complex Entity</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseComplexEntity(ComplexEntity object) {
-		return null;
-	}
-
-	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Attribute</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -231,21 +204,6 @@ public class ErdMetamodelSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseRelationship(Relationship object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Constraint</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Constraint</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseConstraint(Constraint object) {
 		return null;
 	}
 

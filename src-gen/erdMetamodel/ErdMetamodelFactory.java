@@ -49,15 +49,6 @@ public interface ErdMetamodelFactory extends EFactory {
 	WeakEntity createWeakEntity();
 
 	/**
-	 * Returns a new object of class '<em>Complex Entity</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Complex Entity</em>'.
-	 * @generated
-	 */
-	ComplexEntity createComplexEntity();
-
-	/**
 	 * Returns a new object of class '<em>Attribute</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -83,15 +74,6 @@ public interface ErdMetamodelFactory extends EFactory {
 	 * @generated
 	 */
 	Relationship createRelationship();
-
-	/**
-	 * Returns a new object of class '<em>Constraint</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Constraint</em>'.
-	 * @generated
-	 */
-	Constraint createConstraint();
 
 	/**
 	 * Returns the package supported by this factory.
