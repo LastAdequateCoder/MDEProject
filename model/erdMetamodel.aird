@@ -15,6 +15,7 @@
     <semanticResources>../ATL/out.ecore</semanticResources>
     <semanticResources>../ATL/Test5.xmi</semanticResources>
     <semanticResources>../ATL/test.ecore</semanticResources>
+    <semanticResources>../ATL/test5.ecore</semanticResources>
     <ownedViews xmi:type="viewpoint:DView" uid="_P4nUAHp-Ee-2wcMWmbb0ww">
       <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']"/>
       <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_P5Q0QHp-Ee-2wcMWmbb0ww" name="erdMetamodel" repPath="#_P5L7wHp-Ee-2wcMWmbb0ww" changeId="1727199081852">
