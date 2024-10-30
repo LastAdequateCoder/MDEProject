@@ -27,7 +27,7 @@ rule Attribute2Column {
     from
         a: ErdMetamodel!Attribute (not a.isPrimaryKey )
     to
-        column: SqlDatabaseMetamodel!Column (  -- Changed label to 'column'
+        column: SqlDatabaseMetamodel!Column ( 
             name <- a.name,
             dataType <- thisModule.mapDataType(a.dataType),
 			constraintTypeSQL <- thisModule.mapConstraintType(a.constraintType),

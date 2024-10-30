@@ -20,6 +20,7 @@
       <genEnumLiterals ecoreEnumLiteral="erdMetamodel.ecore#//RelationshipType/ManyToMany"/>
     </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="erdMetamodel.ecore#//ConstraintType">
+      <genEnumLiterals ecoreEnumLiteral="erdMetamodel.ecore#//ConstraintType/NONE"/>
       <genEnumLiterals ecoreEnumLiteral="erdMetamodel.ecore#//ConstraintType/UNIQUE"/>
       <genEnumLiterals ecoreEnumLiteral="erdMetamodel.ecore#//ConstraintType/CHECK"/>
     </genEnums>
