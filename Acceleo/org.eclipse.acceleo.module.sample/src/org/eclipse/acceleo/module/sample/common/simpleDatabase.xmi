@@ -1,0 +1,12 @@
+<sqlMetamodel:Database xmlns:xmi="http://www.omg.org/XMI" xmlns:sqlMetamodel="http://www.example.org/sqlDatabaseMetamodel" xmi:version="2.0" name="MyDatabase">
+    <tables name="Employee">
+        <columns name="ID" isAutoIncrement="true"/>
+        <columns name="Name" dataType="VARCHAR"/>
+    </tables>
+    <tables name="City">
+        <columns name="Name"/>
+    </tables>
+    <tables name="Company">
+        <columns name="Name"/>
+    </tables>
+</sqlMetamodel:Database>

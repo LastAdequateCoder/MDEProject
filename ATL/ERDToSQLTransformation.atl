@@ -1,6 +1,17 @@
 module ERDToSQLTransformation;
 create OUT: SqlDatabaseMetamodel from IN: ErdMetamodel;
 
+-- Transformation rule to map the entire ERD model to a SQL database
+rule Model2Database {
+    from
+        erdModel: ErdMetamodel!Model
+    to
+        sqlDatabase: SqlDatabaseMetamodel!Database (
+            name <- erdModel.name,  -- Use the name from the ERD Model
+            tables <- SqlDatabaseMetamodel!Table.allInstances()
+        )
+}
+
 -- Transformation rules for Entities to Tables
 rule Entity2Table {
     from
@@ -9,7 +20,8 @@ rule Entity2Table {
         t: SqlDatabaseMetamodel!Table (
             name <- e.name,
             columns <- e.attributes->collect(a | thisModule.resolveTemp(a, 'column')),
-            primaryKey <- thisModule.resolveTemp(e.attributes->select(a | a.isPrimaryKey)->first(), 'primaryKey'),
+ 			primaryKey <- e.attributes->select(a | a.isPrimaryKey)
+                             ->collect(pkAttr | thisModule.resolveTemp(pkAttr, 'primaryKey')),
 			foreignKeys <- thisModule.getForeignKeysForEntity(e)
         )
 }

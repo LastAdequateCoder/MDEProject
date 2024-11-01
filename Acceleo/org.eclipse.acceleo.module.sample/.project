@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>erdMetamodel</name>
+	<name>org.eclipse.acceleo.module.sample</name>
 	<comment></comment>
 	<projects>
+		<project>SqlMetamodel</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>
@@ -44,6 +45,22 @@
 		<buildCommand>
 			<name>org.eclipse.acceleo.ide.ui.acceleoBuilder</name>
 			<arguments>
+				<dictionary>
+					<key>compilation.kind</key>
+					<value>compilation.platform.resource</value>
+				</dictionary>
+				<dictionary>
+					<key>compliance</key>
+					<value>pragmatic</value>
+				</dictionary>
+				<dictionary>
+					<key>resource.kind</key>
+					<value>xmi</value>
+				</dictionary>
+				<dictionary>
+					<key>trim-position</key>
+					<value>false</value>
+				</dictionary>
 			</arguments>
 		</buildCommand>
 	</buildSpec>

@@ -1,0 +1,61 @@
+[comment encoding = UTF-8 /]
+[module generate('http://www.example.org/sqlDatabaseMetamodel')]
+
+[template public generateElement(aDatabase : Database)]
+[comment @main/]
+[file (aDatabase.name.concat('.sql'), false, 'UTF-8')]
+CREATE DATABASE [aDatabase.name/];
+
+[for (table : Table | aDatabase.tables)]
+    [generateTable(table)/]
+[/for]
+[for (table : Table | aDatabase.tables)]
+[for (fk : ForeignKey | table.foreignKeys)]
+    ALTER TABLE [table.name/] ADD CONSTRAINT FK_[fk.name.toUpper()/] FOREIGN KEY ([fk.name/])
+    REFERENCES [fk.referencedTable.name/] ([fk.referencedColumn.name/]);
+[/for]
+[/for]
+[/file]
+[/template]
+
+[template private generateTable(aTable : Table)]
+CREATE TABLE [aTable.name/] (
+	[generatePrimaryColumn(aTable.primaryKey)/],
+    [for (column : Column | aTable.columns)]
+        [generateColumn(column)/],
+    [/for]
+    [for (column : ForeignKey | aTable.foreignKeys)]
+        [generateColumn(column)/],
+    [/for]
+    [if aTable.primaryKey <> null][generatePrimaryKey(aTable)/][/if]
+);
+[/template]
+
+[template private generateColumn(aColumn : Column)]
+[aColumn.name/] 
+[if aColumn.isAutoIncrement] SERIAL[else][aColumn.dataType.toString()/][/if]
+[if not aColumn.isNullable] NOT NULL[/if]
+[if aColumn.constraintTypeSQL = SQLConstraintType::CHECK]
+    [if aColumn.dataType = SQLDataTypes::INT] CHECK ([aColumn.name/] > 0)
+    [elseif aColumn.dataType = SQLDataTypes::VARCHAR] CHECK (LENGTH([aColumn.name/]) > 2)
+    [/if]
+[elseif aColumn.constraintTypeSQL = SQLConstraintType::UNIQUE]
+    UNIQUE
+[/if]
+[/template]
+
+[template private generatePrimaryColumn(aColumn : Column)]
+[aColumn.name/] [aColumn.dataType.toString()/]
+[if not aColumn.isNullable] NOT NULL[/if]
+[if aColumn.constraintTypeSQL = SQLConstraintType::CHECK]
+    [if aColumn.dataType = SQLDataTypes::INT] CHECK ([aColumn.name/] > 0)
+    [elseif aColumn.dataType = SQLDataTypes::VARCHAR] CHECK (LENGTH([aColumn.name/]) > 2)
+    [/if]
+[elseif aColumn.constraintTypeSQL = SQLConstraintType::UNIQUE]
+    UNIQUE
+[/if]
+[/template]
+
+[template private generatePrimaryKey(aTable : Table)]
+PRIMARY KEY ([aTable.primaryKey.name/])
+[/template]
