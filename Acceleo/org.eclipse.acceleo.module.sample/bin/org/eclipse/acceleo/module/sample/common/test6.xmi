@@ -14,8 +14,7 @@
           name="CompanyEmployee"
           constraintTypeSQL="UNIQUE"/>
       <columns
-          name="CompanyProject"
-          constraintTypeSQL="UNIQUE"/>
+          name="CompanyProject"/>
     </tables>
     <tables
         name="Employee"
