@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:sqlDatabaseMetamodel="http://www.example.org/sqlDatabaseMetamodel">
-  <sqlDatabaseMetamodel:Database>
+  <sqlDatabaseMetamodel:Database name="LectureDB">
     <tables name="LectureSchedule" primaryKey="/7" foreignKeys="/3">
       <columns name="LectureHallID"/>
-      <columns name="LectureID"/>
+      <columns name="LectureID" constraintTypeSQL="UNIQUE"/>
       <columns name="Starttime"/>
       <columns name="Duration"/>
-      <columns name="LecturerID"/>
+      <columns name="LecturerID" constraintTypeSQL="UNIQUE"/>
     </tables>
     <tables name="LectureHall" primaryKey="/8" foreignKeys="/1">
       <columns name="IDLectureHall"/>
@@ -16,14 +16,14 @@
       <columns name="NameLecture" dataType="VARCHAR"/>
       <columns name="Description" dataType="VARCHAR"/>
       <columns name="DurationLecture"/>
-      <columns name="MainLecturerID"/>
+      <columns name="MainLecturerID" constraintTypeSQL="UNIQUE"/>
       <columns name="SubjectIDLecture"/>
     </tables>
     <tables name="Subject" primaryKey="/10">
       <columns name="SubjectName" dataType="VARCHAR"/>
     </tables>
     <tables name="LectureRegistration" primaryKey="/11">
-      <columns name="StudentIDRegistration"/>
+      <columns name="StudentIDRegistration" constraintTypeSQL="UNIQUE"/>
     </tables>
     <tables name="Student" primaryKey="/12" foreignKeys="/4">
       <columns name="Firstname" dataType="VARCHAR"/>
@@ -49,7 +49,7 @@
   <sqlDatabaseMetamodel:ForeignKey name="LecturerLectureRelationship" referencedTable="/0/@tables.2"
       referencedColumn="/0/@tables.2/@columns.3"/>
   <sqlDatabaseMetamodel:PrimaryKey name="ScheduleID" isNullable="false" isAutoIncrement="true"/>
-  <sqlDatabaseMetamodel:PrimaryKey name="Name" dataType="VARCHAR" isNullable="false"
+  <sqlDatabaseMetamodel:PrimaryKey name="NameHall" dataType="VARCHAR" isNullable="false"
       isAutoIncrement="true"/>
   <sqlDatabaseMetamodel:PrimaryKey name="IDLecture" isNullable="false" isAutoIncrement="true"/>
   <sqlDatabaseMetamodel:PrimaryKey name="SubjectID" isNullable="false" isAutoIncrement="true"/>

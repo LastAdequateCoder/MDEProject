@@ -11,19 +11,21 @@
     <attributes
         name="LectureHallID"/>
     <attributes
-        name="LectureID"/>
+        name="LectureID"
+        constraintType="UNIQUE"/>
     <attributes
         name="Starttime"/>
     <attributes
         name="Duration"/>
     <attributes
-        name="LecturerID"/>
+        name="LecturerID"
+        constraintType="UNIQUE"/>
   </Entity>
   <Entity name="LectureHall">
     <attributes
         name="IDLectureHall"/>
     <attributes
-        name="Name"
+        name="NameHall"
         isPrimaryKey="true"
         dataType="VARCHAR"/>
     <attributes
@@ -42,7 +44,8 @@
     <attributes
         name="DurationLecture"/>
     <attributes
-        name="MainLecturerID"/>
+        name="MainLecturerID"
+        constraintType="UNIQUE"/>
     <attributes
         name="SubjectIDLecture"/>
   </Entity>
@@ -59,7 +62,8 @@
         name="LectureScheduleID"
         isPrimaryKey="true"/>
     <attributes
-        name="StudentIDRegistration"/>
+        name="StudentIDRegistration"
+        constraintType="UNIQUE"/>
   </Entity>
   <Entity name="Student">
     <attributes

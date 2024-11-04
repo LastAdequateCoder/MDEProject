@@ -11,6 +11,7 @@ CREATE DATABASE LectureDB;
             LectureID 
             INT
             
+                UNIQUE
             ,
             Starttime 
             INT
@@ -23,6 +24,7 @@ CREATE DATABASE LectureDB;
             LecturerID 
             INT
             
+                UNIQUE
             ,
             RegistrationLectureRelationship 
             INT
@@ -31,7 +33,7 @@ CREATE DATABASE LectureDB;
         PRIMARY KEY (ScheduleID)
     );
     CREATE TABLE LectureHall (
-    	Name VARCHAR
+    	NameHall VARCHAR
     	 NOT NULL
     	,
             IDLectureHall 
@@ -46,7 +48,7 @@ CREATE DATABASE LectureDB;
             INT
             
             ,
-        PRIMARY KEY (Name)
+        PRIMARY KEY (NameHall)
     );
     CREATE TABLE Lecture (
     	IDLecture INT
@@ -67,6 +69,7 @@ CREATE DATABASE LectureDB;
             MainLecturerID 
             INT
             
+                UNIQUE
             ,
             SubjectIDLecture 
             INT
@@ -95,6 +98,7 @@ CREATE DATABASE LectureDB;
             StudentIDRegistration 
             INT
             
+                UNIQUE
             ,
         PRIMARY KEY (LectureScheduleID)
     );
